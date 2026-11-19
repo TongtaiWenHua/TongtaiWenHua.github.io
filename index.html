@@ -342,8 +342,6 @@ p{margin:0}
   <div class="wrap">
     <div class="sec-hd">
       <h2 data-tx="obj.title" data-en="Objects">東方器物</h2>
-      <div class="sec-note" data-tx="obj.note" data-en="Grouped by category · lowest price shown first">依類目分區 · 每區先看該類最低價</div>
-      <div class="sec-aside" id="objCount"></div>
     </div>
     <div id="cats"></div>
   </div>
@@ -552,22 +550,20 @@ window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"
       return ia - ib;
     });
     var total = cats.reduce(function (n, c) { return n + c.items.length; }, 0);
-    $("#objCount").textContent = cats.length + " 個類目";
+    
     var html = "";
     cats.forEach(function (c, ci) {
       var first = c.items[0];
       var low = first ? first.price_text : "價格面議";
       html += '<div class="cat" id="cat-' + ci + '">' +
         '<div class="cat-top"><div class="cat-name">' + esc(c.name) + (c.name_en ? '<span class="nm-en">' + esc(c.name_en) + '</span>' : '') + '</div>' +
-        '<div class="cat-meta">' + c.items.length + ' 件 · 由低到高</div>' +
-        '<div class="cat-from">最低 ' + esc(low) + '</div></div>' +
+        '</div>' +
         '<div class="feat" data-open="' + esc(first && first.id ? first.id : "") + '">' +
           '<div class="feat-img">' + (first && first.images && first.images[0] ? '<img src="' + esc(first.images[0].full) + '" alt="' + esc(first.name) + '" loading="lazy">' : phBox()) + '</div>' +
           '<div class="feat-body"><h3>' + esc(first ? first.name : c.name) + (first && first.name_en ? '<span class="nm-en">' + esc(first.name_en) + '</span>' : '') + '</h3>' +
-          '<div class="feat-price">' + esc(low) + '</div>' +          '<div class="feat-note">' + (c.items.length > 1 ? "此類最低價 · 共 " + c.items.length + " 件" : "此類唯一一件") + '</div>' +
-          '<div class="card-sku" style="margin-top:10px">' + esc(first && first.sku ? first.sku : "") + '</div></div>' +
+          '<div class="feat-price">' + esc(low) + '</div>' +          '<div class="card-sku" style="margin-top:10px">' + esc(first && first.sku ? first.sku : "") + '</div></div>' +
         '</div>' +
-        (c.items.length > 1 ? '<button class="more" data-more="' + ci + '">查看更多 ' + (c.items.length - 1) + ' 件 →</button>' : "") +
+        (c.items.length > 1 ? '<button class="more" data-more="' + ci + '">查看更多 →</button>' : "") +
         '<div class="grid" id="grid' + ci + '" style="display:none"></div>' +
       '</div>';
     });
@@ -709,7 +705,7 @@ window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"
       var g = $("#grid" + more.getAttribute("data-more"));
       var on = g.style.display !== "none";
       g.style.display = on ? "none" : "grid";
-      more.textContent = (on ? "查看更多 " : "收起 ") + (g.children.length) + " 件 →";
+      more.textContent = (on ? "查看更多 →" : "收起 →");
       if (!on) g.scrollIntoView({ block: "nearest", behavior: "smooth" });
       return;
     }
