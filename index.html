@@ -84,13 +84,12 @@ p{margin:0}
 .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4.6vw,52px);line-height:1.32;letter-spacing:.02em;max-width:17em;text-shadow:0 1px 18px rgba(0,0,0,.25)}
 .hero-sub{margin-top:18px;max-width:34em;color:#e6ddd0;font-size:14px}
 .acts{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:28px}
-.fact-inline{max-width:200px;margin-left:6px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;font-size:13.5px;border:1px solid rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.08);transition:.18s}
 .btn:hover{background:#fff;color:var(--paper);border-color:#fff}
 .btn-main{background:#fff;border-color:#fff;color:var(--paper)}
 .btn-main:hover{background:var(--cin);border-color:var(--cin);color:#fff}
-.facts{display:flex;flex-wrap:wrap;gap:clamp(18px,3.4vw,48px);margin-top:clamp(26px,4vw,44px);padding-top:20px;border-top:1px solid rgba(255,255,255,.28);justify-content:space-between;align-items:flex-end}
-.facts-r{display:flex;flex-wrap:wrap;align-items:flex-end;gap:clamp(14px,2.2vw,30px)}
+.facts{display:flex;flex-wrap:wrap;gap:clamp(18px,3.4vw,48px);margin-top:clamp(26px,4vw,44px);padding-top:20px;border-top:1px solid rgba(255,255,255,.28);align-items:flex-end}
+.facts-btn{margin-left:auto;align-self:flex-end}
 .fact-k{font-family:var(--serif);font-size:16px;color:#fff}
 .fact-v{font-size:11.5px;color:#ded4c6;margin-top:2px}
 
@@ -315,14 +314,11 @@ p{margin:0}
     <div class="acts">
       <a class="btn btn-main" href="#objects">看器物</a>
       <a class="btn" href="#services">看服務</a>
-      <div class="fact-inline"><div class="fact-k">48 小時<span class="fact-en">48 hours</span></div><div class="fact-v">諮詢排序確認<span class="fact-en">Queue confirmed</span></div></div>
     </div>
     <div class="facts">
       <div><div class="fact-k">DHL / FedEx<span class="fact-en">Tracked</span></div><div class="fact-v">國際快遞，附追蹤編號<span class="fact-en">International courier</span></div></div>
-      <div class="facts-r">
-        <div><div class="fact-k">PayPal<span class="fact-en">Card or balance</span></div><div class="fact-v"><span class="fact-en">No account needed</span></div></div>
-        <a class="btn" href="#payment">付款方式</a>
-      </div>
+      <div><div class="fact-k">48 小時<span class="fact-en">48 hours</span></div><div class="fact-v">諮詢排序確認<span class="fact-en">Queue confirmed</span></div></div>
+      <a class="btn facts-btn" href="#payment">付款方式</a>
     </div>
   </div>
 </section>
