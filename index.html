@@ -352,7 +352,6 @@ p{margin:0}
     <div class="sec-hd">
       <h2 data-tx="svc.title" data-en="Readings and Consultations">諮詢服務</h2>
       <div class="sec-note" data-tx="svc.note" data-en="Delivered online · scheduled within 48 hours of payment">線上交付 · 付款後 48 小時內排序</div>
-      <div class="sec-aside" id="svcCount"></div>
     </div>
     <div class="svc-grid" id="svcTop"></div>
     <div class="svc-grid" id="svcRest" style="margin-top:clamp(12px,2vw,20px);display:none"></div>
@@ -603,18 +602,18 @@ window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"
   /* ============ 渲染：服務 ============ */
   function renderSvc() {
     var list = (data.services || []).slice().sort(function (a, b) { return (a.price == null ? 9e9 : a.price) - (b.price == null ? 9e9 : b.price); });
-    $("#svcCount").textContent = list.length + " 項服務";
+    
     function svcHTML(s) {
       return '<div class="svc"><div class="svc-sku">' + esc(s.sku || "") + '</div><h3>' + esc(s.cat) + '</h3>' +
         (s.name_en ? '<div class="svc-en">' + esc(s.name_en) + '</div>' : '') +
         '<p>' + esc(s.desc) + (s.desc_en ? '<span class="svc-desc-en">' + esc(s.desc_en) + '</span>' : '') + '</p>' +
         '<div class="svc-price">' + esc(s.price_text) + '</div>' +
-        '<div class="svc-cta">私訊確認 → 取得付款連結</div></div>';
+        '<div class="svc-cta">私訊確認</div></div>';
     }
     $("#svcTop").innerHTML = list.slice(0, 4).map(svcHTML).join("");
     $("#svcRest").innerHTML = list.slice(4).map(svcHTML).join("");
     var more = $("#svcMore");
-    if (list.length <= 4) { more.style.display = "none"; } else { more.style.display = "inline-flex"; more.textContent = "查看全部 " + list.length + " 項服務 →"; }
+    if (list.length <= 4) { more.style.display = "none"; } else { more.style.display = "inline-flex"; more.textContent = "查看全部服務"; }
     return list;
   }
 
@@ -747,7 +746,7 @@ window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"
     svcOpen = !svcOpen;
     $("#svcRest").style.display = svcOpen ? "grid" : "none";
     var n = (data.services || []).length;
-    this.textContent = svcOpen ? "收起服務 —" : "查看全部 " + n + " 項服務 →";
+    this.textContent = svcOpen ? "收起服務" : "查看全部服務";
   });
 
   document.addEventListener("keydown", function (e) {
