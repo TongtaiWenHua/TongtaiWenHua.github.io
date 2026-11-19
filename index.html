@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>通泰文化 · 東方器物與命理諮詢</title>
+<meta name="description" content="通泰文化：一對一命理諮詢，與可長期持有的東方器物。線上諮詢後下單，PayPal 收款，國際快遞配送。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="通泰文化 · 東方器物與命理諮詢">
+<meta property="og:description" content="48 件器物、7 項命理服務。逐筆確認品項與運費後生成付款連結，國際快遞配送。">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230e1015'/%3E%3Crect x='10' y='10' width='44' height='44' fill='none' stroke='%23c8a86b' stroke-width='2'/%3E%3Ctext x='32' y='44' font-size='30' text-anchor='middle' fill='%23ece7de' font-family='serif'%3E通%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#0e1015; --ink-2:#141821; --ink-3:#1b202b;
+  --paper:#ece7de; --dim:#9aa1b0; --dim-2:#78808f;
+  --gold:#c8a86b; --cin:#a83b2f; --cin-l:#c2543f;
+  --line:rgba(200,168,107,.18); --line-2:rgba(236,231,222,.1);
+  --serif:"Noto Serif TC","Songti TC","PMingLiU","MingLiU","Songti SC","STSong","SimSun",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC","Noto Sans SC",system-ui,sans-serif;
+  --en:"Karla","Helvetica Neue","Segoe UI",system-ui,sans-serif;
+  --r:2px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);font-weight:300;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 clamp(18px,4.4vw,48px)}
+h2,h3,h4{font-family:var(--serif);font-weight:600;margin:0}
+p{margin:0}
+
+/* ---------- header ---------- */
+.hd{position:sticky;top:0;z-index:60;background:rgba(14,16,21,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-2)}
+.hd-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
+.brand{display:flex;align-items:center;gap:11px;min-width:0}
+.mark{width:34px;height:34px;flex:0 0 auto;border:1px solid var(--gold);display:grid;place-items:center;font-family:var(--serif);font-size:17px;color:var(--gold)}
+.brand-tx{min-width:0}
+.brand-cn{font-family:var(--serif);font-size:16px;letter-spacing:.16em;white-space:nowrap;line-height:1.3}
+.brand-en{font-family:var(--en);font-size:9.5px;letter-spacing:.22em;color:var(--dim-2);line-height:1.4}
+.nav{display:flex;gap:22px;font-size:13px;color:var(--dim)}
+.nav a{white-space:nowrap;padding:4px 0;border-bottom:1px solid transparent}
+.nav a:hover{color:var(--paper);border-color:var(--line)}
+.hd-cta{display:none}
+@media(min-width:820px){.hd-cta{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--gold);border:1px solid var(--line);padding:7px 14px;border-radius:var(--r)}}
+@media(max-width:819px){.nav{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,7vw,96px) 0 clamp(36px,5vw,64px)}
+.glow{position:absolute;right:-90px;top:-160px;width:min(520px,90vw);height:min(520px,90vw);background:radial-gradient(circle,rgba(168,59,47,.16),transparent 62%);pointer-events:none}
+.stars{position:absolute;inset:0;pointer-events:none;opacity:.7;background-image:radial-gradient(circle at 12% 18%,rgba(200,168,107,.4) 0 1px,transparent 1.6px),radial-gradient(circle at 68% 8%,rgba(232,227,216,.3) 0 1px,transparent 1.6px),radial-gradient(circle at 88% 52%,rgba(200,168,107,.28) 0 1px,transparent 1.6px),radial-gradient(circle at 34% 74%,rgba(232,227,216,.2) 0 1px,transparent 1.6px)}
+.hero-in{position:relative;z-index:1}
+.tag{font-size:11.5px;letter-spacing:.2em;color:var(--gold);margin-bottom:22px}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(28px,5vw,54px);line-height:1.34;letter-spacing:.02em;max-width:17em}
+.hero-sub{margin-top:22px;max-width:36em;color:var(--dim);font-size:14.5px}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:var(--r);font-size:13.5px;border:1px solid var(--line);color:var(--paper);transition:.18s}
+.btn:hover{border-color:var(--gold);color:var(--gold)}
+.btn-main{background:var(--cin);border-color:var(--cin);color:#f6f1e8}
+.btn-main:hover{background:var(--cin-l);border-color:var(--cin-l);color:#fff}
+.facts{display:flex;flex-wrap:wrap;gap:clamp(20px,4vw,54px);margin-top:clamp(32px,5vw,56px);padding-top:22px;border-top:1px solid var(--line-2)}
+.fact-k{font-family:var(--serif);font-size:17px;color:var(--paper)}
+.fact-v{font-size:11.5px;color:var(--dim-2);margin-top:2px}
+
+/* ---------- section ---------- */
+.sec{padding:clamp(44px,6vw,80px) 0;border-top:1px solid var(--line-2)}
+.sec-hd{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:clamp(24px,3.4vw,40px)}
+.sec-hd h2{font-size:clamp(20px,2.6vw,28px);letter-spacing:.06em;position:relative;padding-left:44px}
+.sec-hd h2::before{content:"";position:absolute;left:0;top:.62em;width:28px;height:1px;background:var(--cin)}
+.sec-note{font-size:12.5px;color:var(--dim-2)}
+.sec-aside{margin-left:auto;font-size:12px;color:var(--dim-2)}
+
+/* ---------- category ---------- */
+.cat{border-top:1px solid var(--line-2);padding:clamp(18px,2.4vw,26px) 0}
+.cat:first-of-type{border-top:0}
+.cat-top{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}
+.cat-name{font-family:var(--serif);font-size:16.5px;letter-spacing:.08em}
+.cat-meta{font-size:11.5px;color:var(--dim-2)}
+.cat-from{margin-left:auto;font-size:11.5px;color:var(--gold);font-family:var(--en);letter-spacing:.06em}
+.feat{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:0;align-items:center;background:var(--ink-2);border:1px solid var(--line-2);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:.2s}
+.feat:hover{border-color:var(--line)}
+.feat-img{aspect-ratio:4/3;overflow:hidden;background:#0a0c11}
+.feat-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.feat:hover .feat-img img{transform:scale(1.035)}
+.feat-body{padding:clamp(14px,2vw,24px) clamp(16px,2.4vw,34px)}
+@media(max-width:560px){
+  .feat{grid-template-columns:minmax(0,1fr)}
+  .feat-img{aspect-ratio:1/1}
+  .feat-body{padding:16px}
+}
+.feat-body h3{font-size:clamp(16px,2vw,20px);line-height:1.5}
+.feat-price{font-family:var(--en);font-size:clamp(18px,2.2vw,22px);color:var(--gold);margin-top:10px;letter-spacing:.02em}
+.feat-note{font-size:11.5px;color:var(--dim-2);margin-top:6px}
+.more{margin-top:14px;display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--gold);border-bottom:1px solid var(--line);padding-bottom:3px;cursor:pointer}
+.more:hover{color:var(--paper);border-color:var(--paper)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,22px);margin-top:18px}
+@media(min-width:620px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:980px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.card{background:var(--ink-2);border:1px solid var(--line-2);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:.2s;display:flex;flex-direction:column}
+.card:hover{border-color:var(--line);transform:translateY(-2px)}
+.card-img{aspect-ratio:1/1;overflow:hidden;background:#0a0c11}
+.ph{width:100%;height:100%;display:grid;place-content:center;justify-items:center;gap:8px;background:radial-gradient(120% 90% at 50% 0%,#151a22 0%,#0a0c11 70%)}
+.ph span{font-family:var(--serif);font-size:40px;line-height:1;color:#6d6455;opacity:.85}
+.ph em{font-style:normal;font-size:11px;letter-spacing:.18em;color:#7a7164}
+.card-img img{width:100%;height:100%;object-fit:cover}
+.card-body{padding:12px 13px 15px;display:flex;flex-direction:column;gap:5px;flex:1}
+.card-cat{font-size:10.5px;letter-spacing:.14em;color:var(--dim-2)}
+.card-name{font-family:var(--serif);font-size:14px;line-height:1.55;min-height:2.9em}
+.card-price{font-family:var(--en);font-size:15px;color:var(--gold);margin-top:auto;padding-top:8px}
+.badge{display:inline-block;font-size:10.5px;color:var(--dim);border:1px solid var(--line-2);padding:2px 7px;border-radius:var(--r);margin-top:4px;align-self:flex-start}
+
+/* ---------- services ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,20px)}
+@media(min-width:760px){.svc-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.svc{background:var(--ink-2);border:1px solid var(--line-2);border-radius:var(--r);padding:20px 18px 22px;display:flex;flex-direction:column;gap:9px;min-height:172px;transition:.2s}
+.svc:hover{border-color:var(--line)}
+.svc h3{font-size:15.5px;letter-spacing:.06em}
+.svc-sku{font-family:var(--en);font-size:10.5px;letter-spacing:.14em;color:var(--gold)}
+.svc p{font-size:12.5px;color:var(--dim);flex:1}
+.svc-price{font-family:var(--en);font-size:18px;color:var(--gold)}
+.svc-cta{font-size:11.5px;color:var(--dim-2);border-top:1px solid var(--line-2);padding-top:9px}
+
+/* ---------- payment ---------- */
+.pay-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,20px)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.6vw,18px);margin-bottom:clamp(14px,2vw,22px)}
+.step{border:1px solid var(--line-2);border-radius:var(--r);padding:clamp(12px,1.6vw,18px);background:var(--ink-2)}
+.step i{display:block;font-style:normal;font-family:var(--serif);font-size:12px;letter-spacing:.14em;color:var(--gold);margin-bottom:6px}
+.step b{display:block;font-family:var(--serif);font-size:15px;margin-bottom:5px}
+.step span{display:block;font-size:12.5px;line-height:1.65;color:var(--dim)}
+@media(max-width:700px){.steps{grid-template-columns:minmax(0,1fr)}}
+@media(min-width:760px){.pay-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.pay{background:var(--ink-2);border:1px solid var(--line-2);border-radius:var(--r);padding:18px}
+.pay h4{font-size:14px;letter-spacing:.08em}
+.pay p{font-size:12px;color:var(--dim);margin-top:6px}
+.pay-link{font-size:12px;color:var(--gold);margin-top:9px;word-break:break-all;display:inline-block}
+.consult-band{margin-top:20px;border:1px solid var(--line);background:rgba(168,59,47,.07);padding:16px 18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.consult-band b{font-family:var(--serif);font-size:15px;color:var(--paper);letter-spacing:.08em}
+.consult-band span{font-size:12.5px;color:var(--dim)}
+
+/* ---------- contact ---------- */
+.ct-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,20px)}
+@media(min-width:900px){.ct-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ct{background:var(--ink-2);border:1px solid var(--line-2);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:6px}
+.ct-k{font-size:10.5px;letter-spacing:.18em;color:var(--gold)}
+.ct-v{font-family:var(--en);font-size:13.5px;color:var(--paper);word-break:break-all}
+.ct-sub{font-size:11.5px;color:var(--dim-2)}
+.ct-acts{display:flex;gap:10px;margin-top:auto;padding-top:12px}
+.mini{font-size:11px;color:var(--dim);border:1px solid var(--line-2);padding:4px 10px;border-radius:var(--r)}
+.mini:hover{color:var(--gold);border-color:var(--line)}
+
+/* ---------- footer ---------- */
+.ft{border-top:1px solid var(--line-2);padding:34px 0 44px;color:var(--dim-2);font-size:12px}
+.ft-in{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+.ft a:hover{color:var(--gold)}
+
+/* ---------- detail sheet ---------- */
+.mask{position:fixed;inset:0;background:rgba(6,7,10,.88);z-index:90;display:none;backdrop-filter:blur(6px)}
+.mask.on{display:block}
+.sheet{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain}
+.sheet-in{max-width:760px;margin:0 auto;padding:0 0 120px}
+.dt-close{position:sticky;top:0;z-index:5;display:flex;justify-content:flex-end;padding:10px 14px;background:linear-gradient(rgba(6,7,10,.9),rgba(6,7,10,0))}
+.dt-close button{width:36px;height:36px;border:1px solid var(--line-2);border-radius:50%;color:var(--paper);background:rgba(14,16,21,.7);font-size:16px;line-height:1}
+.gal{position:relative;background:#08090d;overflow:hidden}
+.gal-track{display:flex;transition:transform .32s cubic-bezier(.22,.7,.3,1);touch-action:pan-y}
+.gal-track img{flex:0 0 100%;width:100%;aspect-ratio:4/5;object-fit:contain;background:#08090d}
+.gal-btn{position:absolute;top:50%;translate:0 -50%;width:38px;height:38px;border-radius:50%;background:rgba(14,16,21,.72);border:1px solid var(--line-2);color:var(--paper);font-size:15px}
+.gal-prev{left:10px}.gal-next{right:10px}
+.gal-dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:6px}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(236,231,222,.35);border:0;padding:0}
+.dot.on{background:var(--gold)}
+.dt-body{padding:24px clamp(18px,4vw,34px) 0}
+.dt-cat{font-size:10.5px;letter-spacing:.18em;color:var(--gold)}
+.dt-name{font-family:var(--serif);font-size:clamp(20px,3vw,27px);line-height:1.45;margin-top:8px}
+.dt-price{font-family:var(--en);font-size:22px;color:var(--gold);margin-top:12px}
+.dt-sku{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-family:var(--en);font-size:12px;letter-spacing:.1em;color:var(--dim);border:1px solid var(--line-2);border-radius:999px;padding:4px 12px}
+.card-sku{font-family:var(--en);font-size:10.5px;letter-spacing:.1em;color:var(--dim-2);margin-top:4px}
+.dt-note{font-size:12.5px;color:var(--dim);margin-top:14px;line-height:1.9}
+.dt-ask{border:1px solid var(--line);background:rgba(168,59,47,.08);padding:14px 16px;margin-top:22px;font-size:12.5px;color:var(--paper)}
+.dt-ask b{display:block;font-family:var(--serif);font-size:15px;letter-spacing:.1em;margin-bottom:5px}
+.dt-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.thumbs{display:flex;gap:8px;overflow-x:auto;padding:14px clamp(18px,4vw,34px) 0;scrollbar-width:none}
+.thumbs::-webkit-scrollbar{display:none}
+.thumbs img{width:56px;height:56px;object-fit:cover;border:1px solid transparent;opacity:.6;flex:0 0 auto}
+.thumbs img.on{border-color:var(--gold);opacity:1}
+
+/* ---------- admin ---------- */
+.adm{position:fixed;inset:0;z-index:120;background:var(--ink);display:none;overflow-y:auto}
+.adm.on{display:block}
+.adm-in{max-width:1000px;margin:0 auto;padding:24px clamp(16px,4vw,32px) 80px}
+.adm-hd{display:flex;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line-2);padding-bottom:14px;margin-bottom:18px}
+.adm-hd h2{font-size:20px;letter-spacing:.08em}
+.adm-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.tab{font-size:12px;padding:6px 13px;border:1px solid var(--line-2);border-radius:var(--r);color:var(--dim)}
+.tab.on{color:var(--gold);border-color:var(--line)}
+.adm-sec{display:none}
+.adm-sec.on{display:block}
+.row{background:var(--ink-2);border:1px solid var(--line-2);border-radius:var(--r);padding:12px 14px;margin-bottom:10px;display:grid;gap:9px}
+.row-line{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.f{display:flex;flex-direction:column;gap:4px;min-width:0}
+.f label{font-size:10.5px;color:var(--dim-2);letter-spacing:.08em}
+.f input,.f select,.f textarea{width:100%;background:#0b0d12;border:1px solid var(--line-2);color:var(--paper);padding:8px 10px;font:inherit;font-size:13px;border-radius:var(--r)}
+.f textarea{resize:vertical;min-height:54px}
+.row-acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.del{font-size:11.5px;color:var(--cin-l);border:1px solid rgba(194,84,63,.35);padding:5px 11px;border-radius:var(--r)}
+.add{font-size:12.5px;color:var(--gold);border:1px dashed var(--line);padding:9px 16px;border-radius:var(--r);width:100%;margin-top:6px}
+.adm-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(14,16,21,.95);border-top:1px solid var(--line-2);padding:10px 16px;display:none;gap:8px;justify-content:center;flex-wrap:wrap;z-index:130}
+.adm-bar.on{display:flex}
+.lock{max-width:520px;margin:12vh auto 0;text-align:center;padding:0 20px}
+.lock .mark{width:56px;height:56px;font-size:26px;margin:0 auto 18px}
+.lock h2{font-size:19px;letter-spacing:.1em}
+.lock p{font-size:12.5px;color:var(--dim);margin-top:10px;line-height:1.95}
+.lock .btn{margin-top:18px}
+.lock-msg{font-size:12px;color:var(--gold);margin-top:12px;min-height:1.6em}
+
+.toast{position:fixed;left:50%;bottom:26px;translate:-50% 0;background:rgba(27,32,43,.96);border:1px solid var(--line);color:var(--paper);font-size:12.5px;padding:9px 18px;border-radius:var(--r);z-index:200;opacity:0;pointer-events:none;transition:.2s}
+.toast.on{opacity:1}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hd"><div class="wrap hd-in">
+  <a class="brand" href="#top">
+    <span class="mark">通</span>
+    <span class="brand-tx"><span class="brand-cn">通泰文化</span><br><span class="brand-en">TONGTAI WENHUA</span></span>
+  </a>
+  <nav class="nav">
+    <a href="#objects">器物</a>
+    <a href="#services">服務</a>
+    <a href="#payment">付款</a>
+    <a href="#contact">聯絡</a>
+  </nav>
+  <a class="hd-cta" href="#contact">諮詢後下單 · Enquire</a>
+</div></header>
+
+<section class="hero" id="top">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div class="tag">器物 · 命理 · 年度運勢</div>
+    <h1>看得懂器物的人，<br>心裡比較有底。</h1>
+    <p class="hero-sub">通泰文化以命盤、節氣與東方器物為工作方法：一對一命理諮詢，與可長期持有的器物。線上諮詢後下單，PayPal 收款，國際快遞配送。</p>
+    <div class="acts">
+      <a class="btn btn-main" href="#objects">看器物</a>
+      <a class="btn" href="#services">看服務</a>
+      <a class="btn" href="#payment">付款方式</a>
+    </div>
+    <div class="facts">
+      <div><div class="fact-k">48 小時</div><div class="fact-v">諮詢排序確認</div></div>
+      <div><div class="fact-k">PayPal</div><div class="fact-v">信用卡或餘額付款</div></div>
+      <div><div class="fact-k">USD</div><div class="fact-v">全站以美元計價</div></div>
+      <div><div class="fact-k">DHL / FedEx</div><div class="fact-v">國際快遞，附追蹤編號</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="objects">
+  <div class="wrap">
+    <div class="sec-hd">
+      <h2>東方器物</h2>
+      <div class="sec-note">依類目分區 · 每區先看該類最低價</div>
+      <div class="sec-aside" id="objCount"></div>
+    </div>
+    <div id="cats"></div>
+  </div>
+</section>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-hd">
+      <h2>諮詢服務</h2>
+      <div class="sec-note">線上交付 · 付款後 48 小時內排序</div>
+      <div class="sec-aside" id="svcCount"></div>
+    </div>
+    <div class="svc-grid" id="svcTop"></div>
+    <div class="svc-grid" id="svcRest" style="margin-top:clamp(12px,2vw,20px);display:none"></div>
+    <button class="more" id="svcMore">查看全部服務 →</button>
+  </div>
+</section>
+
+<section class="sec" id="payment">
+  <div class="wrap">
+    <div class="sec-hd"><h2>付款與運送</h2><div class="sec-note">每筆交易確認後生成付款連結</div></div>
+    <div class="steps">
+      <div class="step"><i>01</i><b>選定品項</b><span>記下器物或服務的編號（TT-／TS-），連同數量一起告訴我們。</span></div>
+      <div class="step"><i>02</i><b>確認報價</b><span>我們核對庫存、尺寸、配送方式與運費，回覆最終金額（美元）。</span></div>
+      <div class="step"><i>03</i><b>生成連結</b><span>依該筆金額與編號生成一次性 PayPal 付款連結，效期 24 小時。</span></div>
+    </div>
+    <div class="pay-grid" id="payList"></div>
+    <div class="consult-band">
+      <b>每筆交易單獨生成付款連結</b>
+      <span>全站不預設任何收款連結。所有器物與服務均先確認品項編號、庫存、尺寸與運費，我們再依該筆交易金額生成付款連結；金額與備註會與訂單內容一致，方便雙方對帳。</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="sec-hd"><h2>聯絡</h2><div class="sec-note">任選一種，回覆最快是 WhatsApp</div></div>
+    <div class="ct-grid" id="ctList"></div>
+  </div>
+</section>
+
+<footer class="ft"><div class="wrap ft-in">
+  <span>通泰文化 · Tongtai Wenhua</span>
+  <span>v1.0 · <a href="#admin" id="admLink">管理</a></span>
+</div></footer>
+
+<!-- 詳情 -->
+<div class="mask" id="mask">
+  <div class="sheet" id="sheet"><div class="sheet-in">
+    <div class="dt-close"><button id="dtClose" aria-label="關閉">×</button></div>
+    <div class="gal">
+      <div class="gal-track" id="galTrack"></div>
+      <button class="gal-btn gal-prev" id="galPrev" aria-label="上一張">‹</button>
+      <button class="gal-btn gal-next" id="galNext" aria-label="下一張">›</button>
+      <div class="gal-dots" id="galDots"></div>
+    </div>
+    <div class="thumbs" id="thumbs"></div>
+    <div class="dt-body">
+      <div class="dt-cat" id="dtCat"></div>
+      <h3 class="dt-name" id="dtName"></h3>
+      <div class="dt-price" id="dtPrice"></div>
+      <div class="dt-sku" id="dtSku"></div>
+      <p class="dt-note" id="dtNote"></p>
+      <div class="dt-ask"><b>請諮詢後下單</b>下單時請提供上方編號，我們核對庫存與運費後，依該筆金額生成付款連結。</div>
+      <div class="dt-acts" id="dtActs"></div>
+    </div>
+  </div></div>
+</div>
+
+<!-- 管理 -->
+<div class="adm" id="adm">
+  <div class="adm-in">
+    <div id="lockView" class="lock">
+      <div class="mark">通</div>
+      <h2>管理入口</h2>
+      <p id="lockDesc">此頁僅限本人編輯。首次進入會註冊本機裝置，之後每次以 Windows Hello 指紋（或臉部／PIN）驗證。</p>
+      <button class="btn btn-main" id="lockBtn">驗證身分</button>
+      <div class="lock-msg" id="lockMsg"></div>
+      <p style="margin-top:22px"><a href="#top" id="lockExit" style="color:var(--dim-2)">← 回到頁面</a></p>
+    </div>
+
+    <div id="admView" style="display:none">
+      <div class="adm-hd">
+        <h2>內容管理</h2>
+        <div class="adm-tabs">
+          <button class="tab on" data-tab="p">器物</button>
+          <button class="tab" data-tab="s">服務</button>
+          <button class="tab" data-tab="c">聯絡</button>
+          <button class="tab" data-tab="y">支付</button>
+        </div>
+        <button class="mini" id="admExit">關閉</button>
+      </div>
+      <p style="font-size:12px;color:var(--dim-2);margin-bottom:16px">改完先「套用」，頁面立即更新；確認無誤後「匯出頁面」取得新檔，交回即可覆蓋上線（網址不變）。</p>
+      <div class="adm-sec on" id="secP"></div>
+      <div class="adm-sec" id="secS"></div>
+      <div class="adm-sec" id="secC"></div>
+      <div class="adm-sec" id="secY"></div>
+    </div>
+  </div>
+  <div class="adm-bar" id="admBar">
+    <button class="btn btn-main" id="admApply">套用到頁面</button>
+    <button class="btn" id="admExport">匯出頁面</button>
+    <button class="btn" id="admJson">匯出資料</button>
+    <button class="btn" id="admReset">還原原始</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/*CATALOG_START*/
+window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"items":[{"id":"r50","row":50,"cat":"手机壁纸","name":"手機壁紙・一對一定製","price_raw":"3","price":3.0,"price_text":"US$3","note":"依你的照片、機型與風格一對一繪製；下單前請先私訊確認尺寸與交付格式。","images":[{"full":"assets/p/p092.jpg","thumb":"assets/p/p092_s.jpg"},{"full":"assets/p/p093.jpg","thumb":"assets/p/p093_s.jpg"},{"full":"assets/p/p094.jpg","thumb":"assets/p/p094_s.jpg"}],"sku":"TT-048"}]},{"name":"挂饰","count":5,"low":199.0,"items":[{"id":"r18","row":18,"cat":"挂饰","name":"福禄车包挂饰","price_raw":"199","price":199.0,"price_text":"US$199","note":"","images":[{"full":"assets/p/p021.jpg","thumb":"assets/p/p021_s.jpg"},{"full":"assets/p/p022.jpg","thumb":"assets/p/p022_s.jpg"}],"sku":"TT-016"},{"id":"r21","row":21,"cat":"挂饰","name":"卷轴挂历","price_raw":"288","price":288.0,"price_text":"US$288","note":"","images":[{"full":"assets/p/p027.jpg","thumb":"assets/p/p027_s.jpg"},{"full":"assets/p/p028.jpg","thumb":"assets/p/p028_s.jpg"}],"sku":"TT-019"},{"id":"r40","row":40,"cat":"挂饰","name":"扎基拉姆朱砂挂坠","price_raw":"588","price":588.0,"price_text":"US$588","note":"","images":[{"full":"assets/p/p072.jpg","thumb":"assets/p/p072_s.jpg"},{"full":"assets/p/p073.jpg","thumb":"assets/p/p073_s.jpg"}],"sku":"TT-038"},{"id":"r27","row":27,"cat":"挂饰","name":"雷击枣木挂坠","price_raw":"799","price":799.0,"price_text":"US$799","note":"","images":[{"full":"assets/p/p038.jpg","thumb":"assets/p/p038_s.jpg"},{"full":"assets/p/p039.jpg","thumb":"assets/p/p039_s.jpg"}],"sku":"TT-025"},{"id":"r26","row":26,"cat":"挂饰","name":"手绘卷轴挂饰","price_raw":"1599","price":1599.0,"price_text":"US$1,599","note":"","images":[{"full":"assets/p/p036.jpg","thumb":"assets/p/p036_s.jpg"},{"full":"assets/p/p037.jpg","thumb":"assets/p/p037_s.jpg"}],"sku":"TT-024"}]},{"name":"手镯手环手串","count":13,"low":299.0,"items":[{"id":"r23","row":23,"cat":"手镯手环手串","name":"97%纯阳朱砂","price_raw":"299","price":299.0,"price_text":"US$299","note":"","images":[{"full":"assets/p/p031.jpg","thumb":"assets/p/p031_s.jpg"},{"full":"assets/p/p032.jpg","thumb":"assets/p/p032_s.jpg"}],"sku":"TT-021"},{"id":"r42","row":42,"cat":"手镯手环手串","name":"生肖化太岁手串","price_raw":"599-999","price":599.0,"price_text":"US$599–999","note":"","images":[{"full":"assets/p/p076.jpg","thumb":"assets/p/p076_s.jpg"},{"full":"assets/p/p077.jpg","thumb":"assets/p/p077_s.jpg"}],"sku":"TT-040"},{"id":"r28","row":28,"cat":"手镯手环手串","name":"雷击枣木玉手串","price_raw":"655","price":655.0,"price_text":"US$655","note":"","images":[{"full":"assets/p/p040.jpg","thumb":"assets/p/p040_s.jpg"},{"full":"assets/p/p041.jpg","thumb":"assets/p/p041_s.jpg"}],"sku":"TT-026"},{"id":"r22","row":22,"cat":"手镯手环手串","name":"祥云手串-龙凤眸珠","price_raw":"788","price":788.0,"price_text":"US$788","note":"","images":[{"full":"assets/p/p029.jpg","thumb":"assets/p/p029_s.jpg"},{"full":"assets/p/p030.jpg","thumb":"assets/p/p030_s.jpg"}],"sku":"TT-020"},{"id":"r24","row":24,"cat":"手镯手环手串","name":"和田玉白鹤童子聚气养身润心手串","price_raw":"795","price":795.0,"price_text":"US$795","note":"","images":[{"full":"assets/p/p033.jpg","thumb":"assets/p/p033_s.jpg"},{"full":"assets/p/p034.jpg","thumb":"assets/p/p034_s.jpg"}],"sku":"TT-022"},{"id":"r32","row":32,"cat":"手镯手环手串","name":"雷击枣木108颗多宝手串","price_raw":"888","price":888.0,"price_text":"US$888","note":"","images":[{"full":"assets/p/p047.jpg","thumb":"assets/p/p047_s.jpg"},{"full":"assets/p/p048.jpg","thumb":"assets/p/p048_s.jpg"}],"sku":"TT-030"},{"id":"r38","row":38,"cat":"手镯手环手串","name":"青金石安神手串","price_raw":"888","price":888.0,"price_text":"US$888","note":"","images":[{"full":"assets/p/p068.jpg","thumb":"assets/p/p068_s.jpg"},{"full":"assets/p/p069.jpg","thumb":"assets/p/p069_s.jpg"}],"sku":"TT-036"},{"id":"r31","row":31,"cat":"手镯手环手串","name":"黑驴蹄金蟾守财手串","price_raw":"888","price":888.0,"price_text":"US$888","note":"","images":[{"full":"assets/p/p045.jpg","thumb":"assets/p/p045_s.jpg"},{"full":"assets/p/p046.jpg","thumb":"assets/p/p046_s.jpg"}],"sku":"TT-029"},{"id":"r36","row":36,"cat":"手镯手环手串","name":"水晶手串","price_raw":"999","price":999.0,"price_text":"US$999","note":"","images":[{"full":"assets/p/p055.jpg","thumb":"assets/p/p055_s.jpg"},{"full":"assets/p/p056.jpg","thumb":"assets/p/p056_s.jpg"},{"full":"assets/p/p057.jpg","thumb":"assets/p/p057_s.jpg"},{"full":"assets/p/p058.jpg","thumb":"assets/p/p058_s.jpg"},{"full":"assets/p/p059.jpg","thumb":"assets/p/p059_s.jpg"}],"sku":"TT-034"},{"id":"r39","row":39,"cat":"手镯手环手串","name":"碧玉木属手串","price_raw":"999","price":999.0,"price_text":"US$999","note":"","images":[{"full":"assets/p/p070.jpg","thumb":"assets/p/p070_s.jpg"},{"full":"assets/p/p071.jpg","thumb":"assets/p/p071_s.jpg"}],"sku":"TT-037"},{"id":"r8","row":8,"cat":"手镯手环手串","name":"新疆和田玉手串","price_raw":"1599","price":1599.0,"price_text":"US$1,599","note":"","images":[{"full":"assets/p/p009.jpg","thumb":"assets/p/p009_s.jpg"}],"sku":"TT-006"},{"id":"r14","row":14,"cat":"手镯手环手串","name":"景震剑手镯（女款）","price_raw":"2588","price":2588.0,"price_text":"US$2,588","note":"","images":[{"full":"assets/p/p015.jpg","thumb":"assets/p/p015_s.jpg"}],"sku":"TT-012"},{"id":"r13","row":13,"cat":"手镯手环手串","name":"景震剑手镯（男款）","price_raw":"2588","price":2588.0,"price_text":"US$2,588","note":"","images":[{"full":"assets/p/p014.jpg","thumb":"assets/p/p014_s.jpg"}],"sku":"TT-011"}]},{"name":"私人定制","count":4,"low":299.0,"items":[{"id":"r48","row":48,"cat":"私人定制","name":"手机背卡","price_raw":"299","price":299.0,"price_text":"US$299","note":"","images":[{"full":"assets/p/p088.jpg","thumb":"assets/p/p088_s.jpg"},{"full":"assets/p/p089.jpg","thumb":"assets/p/p089_s.jpg"},{"full":"assets/p/p090.jpg","thumb":"assets/p/p090_s.jpg"},{"full":"assets/p/p091.jpg","thumb":"assets/p/p091_s.jpg"}],"sku":"TT-046"},{"id":"r37","row":37,"cat":"私人定制","name":"朱砂配饰","price_raw":"888","price":888.0,"price_text":"US$888","note":"","images":[{"full":"assets/p/p060.jpg","thumb":"assets/p/p060_s.jpg"},{"full":"assets/p/p061.jpg","thumb":"assets/p/p061_s.jpg"},{"full":"assets/p/p062.jpg","thumb":"assets/p/p062_s.jpg"},{"full":"assets/p/p063.jpg","thumb":"assets/p/p063_s.jpg"},{"full":"assets/p/p064.jpg","thumb":"assets/p/p064_s.jpg"},{"full":"assets/p/p065.jpg","thumb":"assets/p/p065_s.jpg"},{"full":"assets/p/p066.jpg","thumb":"assets/p/p066_s.jpg"},{"full":"assets/p/p067.jpg","thumb":"assets/p/p067_s.jpg"}],"sku":"TT-035"},{"id":"r35","row":35,"cat":"私人定制","name":"水晶手串","price_raw":"999-2999","price":999.0,"price_text":"US$999–2,999","note":"","images":[{"full":"assets/p/p053.jpg","thumb":"assets/p/p053_s.jpg"},{"full":"assets/p/p054.jpg","thumb":"assets/p/p054_s.jpg"}],"sku":"TT-033"},{"id":"r49","row":49,"cat":"私人定制","name":"儿童配饰","price_raw":"后台咨询","price":null,"price_text":"價格面議","note":"樣式與尺寸依需求訂製，實物照片補拍後更新。","images":[],"sku":"TT-047"}]},{"name":"能量玉牌","count":3,"low":330.0,"items":[{"id":"r4","row":4,"cat":"能量玉牌","name":"朱砂白玉吉祥坠","price_raw":"330","price":330.0,"price_text":"US$330","note":"","images":[{"full":"assets/p/p003.jpg","thumb":"assets/p/p003_s.jpg"},{"full":"assets/p/p004.jpg","thumb":"assets/p/p004_s.jpg"}],"sku":"TT-002"},{"id":"r3","row":3,"cat":"能量玉牌","name":"朱砂白玉平安坠","price_raw":"330","price":330.0,"price_text":"US$330","note":"","images":[{"full":"assets/p/p001.jpg","thumb":"assets/p/p001_s.jpg"},{"full":"assets/p/p002.jpg","thumb":"assets/p/p002_s.jpg"}],"sku":"TT-001"},{"id":"r5","row":5,"cat":"能量玉牌","name":"朱砂白玉无忧坠","price_raw":"330","price":330.0,"price_text":"US$330","note":"","images":[{"full":"assets/p/p005.jpg","thumb":"assets/p/p005_s.jpg"},{"full":"assets/p/p006.jpg","thumb":"assets/p/p006_s.jpg"}],"sku":"TT-003"}]},{"name":"配饰","count":13,"low":330.0,"items":[{"id":"r6","row":6,"cat":"配饰","name":"朱砂雷霆祈愿顺遂挂饰","price_raw":"330","price":330.0,"price_text":"US$330","note":"","images":[{"full":"assets/p/p007.jpg","thumb":"assets/p/p007_s.jpg"}],"sku":"TT-004"},{"id":"r7","row":7,"cat":"配饰","name":"枣木吉祥把玩挂饰","price_raw":"330","price":330.0,"price_text":"US$330","note":"","images":[{"full":"assets/p/p008.jpg","thumb":"assets/p/p008_s.jpg"}],"sku":"TT-005"},{"id":"r16","row":16,"cat":"配饰","name":"手绘招财挂坠","price_raw":"333","price":333.0,"price_text":"US$333","note":"","images":[{"full":"assets/p/p017.jpg","thumb":"assets/p/p017_s.jpg"},{"full":"assets/p/p018.jpg","thumb":"assets/p/p018_s.jpg"}],"sku":"TT-014"},{"id":"r43","row":43,"cat":"配饰","name":"和田玉平安扣","price_raw":"399","price":399.0,"price_text":"US$399","note":"","images":[{"full":"assets/p/p078.jpg","thumb":"assets/p/p078_s.jpg"},{"full":"assets/p/p079.jpg","thumb":"assets/p/p079_s.jpg"}],"sku":"TT-041"},{"id":"r47","row":47,"cat":"配饰","name":"朱砂儿童配饰","price_raw":"399","price":399.0,"price_text":"US$399","note":"","images":[{"full":"assets/p/p086.jpg","thumb":"assets/p/p086_s.jpg"},{"full":"assets/p/p087.jpg","thumb":"assets/p/p087_s.jpg"}],"sku":"TT-045"},{"id":"r33","row":33,"cat":"配饰","name":"九尾狐姻缘挂坠","price_raw":"655","price":655.0,"price_text":"US$655","note":"","images":[{"full":"assets/p/p049.jpg","thumb":"assets/p/p049_s.jpg"},{"full":"assets/p/p050.jpg","thumb":"assets/p/p050_s.jpg"}],"sku":"TT-031"},{"id":"r29","row":29,"cat":"配饰","name":"护身招财戒","price_raw":"655","price":655.0,"price_text":"US$655","note":"","images":[{"full":"assets/p/p042.jpg","thumb":"assets/p/p042_s.jpg"},{"full":"assets/p/p043.jpg","thumb":"assets/p/p043_s.jpg"}],"sku":"TT-027"},{"id":"r25","row":25,"cat":"配饰","name":"偏财挂坠","price_raw":"666","price":666.0,"price_text":"US$666","note":"","images":[{"full":"assets/p/p035.jpg","thumb":"assets/p/p035_s.jpg"}],"sku":"TT-023"},{"id":"r44","row":44,"cat":"配饰","name":"如意锁脖挂","price_raw":"666","price":666.0,"price_text":"US$666","note":"","images":[{"full":"assets/p/p080.jpg","thumb":"assets/p/p080_s.jpg"},{"full":"assets/p/p081.jpg","thumb":"assets/p/p081_s.jpg"}],"sku":"TT-042"},{"id":"r45","row":45,"cat":"配饰","name":"粉水晶水滴耳坠","price_raw":"666","price":666.0,"price_text":"US$666","note":"","images":[{"full":"assets/p/p082.jpg","thumb":"assets/p/p082_s.jpg"},{"full":"assets/p/p083.jpg","thumb":"assets/p/p083_s.jpg"}],"sku":"TT-043"},{"id":"r46","row":46,"cat":"配饰","name":"粉水晶脖挂","price_raw":"666","price":666.0,"price_text":"US$666","note":"","images":[{"full":"assets/p/p084.jpg","thumb":"assets/p/p084_s.jpg"},{"full":"assets/p/p085.jpg","thumb":"assets/p/p085_s.jpg"}],"sku":"TT-044"},{"id":"r30","row":30,"cat":"配饰","name":"手绘描金财神吊坠","price_raw":"699","price":699.0,"price_text":"US$699","note":"","images":[{"full":"assets/p/p044.jpg","thumb":"assets/p/p044_s.jpg"}],"sku":"TT-028"},{"id":"r34","row":34,"cat":"配饰","name":"文昌塔吊坠-学业顺遂","price_raw":"699","price":699.0,"price_text":"US$699","note":"","images":[{"full":"assets/p/p051.jpg","thumb":"assets/p/p051_s.jpg"},{"full":"assets/p/p052.jpg","thumb":"assets/p/p052_s.jpg"}],"sku":"TT-032"}]},{"name":"摆件","count":5,"low":399.0,"items":[{"id":"r41","row":41,"cat":"摆件","name":"玉化雷击枣木葫芦","price_raw":"399","price":399.0,"price_text":"US$399","note":"","images":[{"full":"assets/p/p074.jpg","thumb":"assets/p/p074_s.jpg"},{"full":"assets/p/p075.jpg","thumb":"assets/p/p075_s.jpg"}],"sku":"TT-039"},{"id":"r15","row":15,"cat":"摆件","name":"手作編號茶杯","price_raw":"788","price":788.0,"price_text":"US$788","note":"杯身直径约90mm · 杯高约为5mm · 每一个杯子都有标号，独一无二","images":[{"full":"assets/p/p016.jpg","thumb":"assets/p/p016_s.jpg"}],"sku":"TT-013"},{"id":"r17","row":17,"cat":"摆件","name":"道长手绘","price_raw":"788","price":788.0,"price_text":"US$788","note":"","images":[{"full":"assets/p/p019.jpg","thumb":"assets/p/p019_s.jpg"},{"full":"assets/p/p020.jpg","thumb":"assets/p/p020_s.jpg"}],"sku":"TT-015"},{"id":"r19","row":19,"cat":"摆件","name":"挂轴","price_raw":"888","price":888.0,"price_text":"US$888","note":"","images":[{"full":"assets/p/p023.jpg","thumb":"assets/p/p023_s.jpg"},{"full":"assets/p/p024.jpg","thumb":"assets/p/p024_s.jpg"}],"sku":"TT-017"},{"id":"r20","row":20,"cat":"摆件","name":"镇宅摆件","price_raw":"999","price":999.0,"price_text":"US$999","note":"","images":[{"full":"assets/p/p025.jpg","thumb":"assets/p/p025_s.jpg"},{"full":"assets/p/p026.jpg","thumb":"assets/p/p026_s.jpg"}],"sku":"TT-018"}]},{"name":"水晶球","count":4,"low":1788.0,"items":[{"id":"r9","row":9,"cat":"水晶球","name":"红碧玉纳吉旺运吉祥摆件","price_raw":"1788","price":1788.0,"price_text":"US$1,788","note":"","images":[{"full":"assets/p/p010.jpg","thumb":"assets/p/p010_s.jpg"}],"sku":"TT-007"},{"id":"r11","row":11,"cat":"水晶球","name":"绿萤石旺宅顺遂摆件","price_raw":"1788","price":1788.0,"price_text":"US$1,788","note":"","images":[{"full":"assets/p/p012.jpg","thumb":"assets/p/p012_s.jpg"}],"sku":"TT-009"},{"id":"r12","row":12,"cat":"水晶球","name":"黄水晶开运聚财摆件","price_raw":"1788","price":1788.0,"price_text":"US$1,788","note":"","images":[{"full":"assets/p/p013.jpg","thumb":"assets/p/p013_s.jpg"}],"sku":"TT-010"},{"id":"r10","row":10,"cat":"水晶球","name":"黑曜石镇宅摆件","price_raw":"1788","price":1788.0,"price_text":"US$1,788","note":"","images":[{"full":"assets/p/p011.jpg","thumb":"assets/p/p011_s.jpg"}],"sku":"TT-008"}]}],"services":[{"cat":"事物咨询","desc":"大小事务，一事一问","price":60.0,"price_text":"US$60","price_raw":"60","sku":"TS-01"},{"cat":"基础命理","desc":"常规命理报告，终身命运基础预测","price":235.0,"price_text":"US$235","price_raw":"235","sku":"TS-02"},{"cat":"宅院看询","desc":"身前事后预测调理","price":399.0,"price_text":"US$399 起","price_raw":"399起","sku":"TS-03"},{"cat":"全面命理","desc":"全面命理报告，终身命运基础预测","price":599.0,"price_text":"US$599","price_raw":"599","sku":"TS-04"},{"cat":"终身预测","desc":"终身命运预测+奇门总体规划","price":999.0,"price_text":"US$999","price_raw":"999","sku":"TS-05"},{"cat":"通话咨询","desc":"奇门遁甲、塔罗占卜","price":999.0,"price_text":"US$999 / 小時","price_raw":"999/h","sku":"TS-06"},{"cat":"私人定制","desc":"全方位全面报告+通话","price":2200.0,"price_text":"US$2,200","price_raw":"2200","sku":"TS-07"}],"contacts":[{"type":"whatsapp","label":"WhatsApp","value":"+86 153 1442 5232","sub":"名稱 TongtaiWENHUA","link":"https://wa.me/8615314425232","copy":"+8615314425232"},{"type":"line","label":"LINE","value":"+86 153 1442 5232","sub":"以電話號碼搜尋加入好友","link":"","copy":"+8615314425232"},{"type":"wechat","label":"微信 WeChat","value":"Tongtai-wenhua","sub":"用戶名 TongtaiCC","link":"","copy":"Tongtai-wenhua"},{"type":"email","label":"電郵 Email","value":"zengyaold1989@gmail.com","sub":"回覆約 1 個工作日","link":"mailto:zengyaold1989@gmail.com","copy":"zengyaold1989@gmail.com"}],"payments":[{"name":"PayPal","desc":"依該筆交易的金額與品項編號生成一次性付款連結，效期 24 小時；買方可用信用卡或 PayPal 餘額支付，無需註冊。","link":""},{"name":"銀行轉帳 / 電匯","desc":"台灣、香港、東南亞客戶可選本地轉帳或電匯，確認訂單後提供收款帳戶資料。","link":""},{"name":"微信 / 支付寶","desc":"中國大陸客戶可用，確認訂單後提供收款碼。","link":""}]};
+/*CATALOG_END*/
+
+(function () {
+  "use strict";
+  var ORIGIN = JSON.parse(JSON.stringify(window.__CATALOG__));
+  var CFG = window.__SITE__ || {};
+  var data = JSON.parse(JSON.stringify(ORIGIN));
+  var LS = "tongtai_catalog_v1";
+  try {
+    var saved = localStorage.getItem(LS);
+    if (saved) data = JSON.parse(saved);
+  } catch (e) {}
+
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]; }); }
+
+  var toastT;
+  function toast(msg) { var t = $("#toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove("on"); }, 2200); }
+
+  /* ============ 渲染：器物 ============ */
+  function priceNum(p) { return p.price == null ? 9e9 : Number(p.price); }
+
+  function renderCats() {
+    var cats = data.categories || [];
+    cats.forEach(function (c) {
+      c.items.sort(function (a, b) { return priceNum(a) - priceNum(b); });
+      var nums = c.items.map(function (x) { return x.price; }).filter(function (x) { return x != null; });
+      c.low = nums.length ? Math.min.apply(null, nums) : 9e9;
+    });
+    cats.sort(function (a, b) { return (a.low || 9e9) - (b.low || 9e9); });
+    var total = cats.reduce(function (n, c) { return n + c.items.length; }, 0);
+    $("#objCount").textContent = cats.length + " 個類目 · " + total + " 件";
+    var html = "";
+    cats.forEach(function (c, ci) {
+      var first = c.items[0];
+      var low = first ? first.price_text : "價格面議";
+      html += '<div class="cat">' +
+        '<div class="cat-top"><div class="cat-name">' + esc(c.name) + '</div>' +
+        '<div class="cat-meta">' + c.items.length + ' 件 · 由低到高</div>' +
+        '<div class="cat-from">最低 ' + esc(low) + '</div></div>' +
+        '<div class="feat" data-open="' + esc(first && first.id ? first.id : "") + '">' +
+          '<div class="feat-img">' + (first && first.images && first.images[0] ? '<img src="' + esc(first.images[0].full) + '" alt="' + esc(first.name) + '" loading="lazy">' : phBox()) + '</div>' +
+          '<div class="feat-body"><h3>' + esc(first ? first.name : c.name) + '</h3>' +
+          '<div class="feat-price">' + esc(low) + '</div>' +          '<div class="feat-note">' + (c.items.length > 1 ? "此類最低價 · 共 " + c.items.length + " 件" : "此類唯一一件") + '</div>' +
+          '<div class="card-sku" style="margin-top:10px">' + esc(first && first.sku ? first.sku : "") + '</div></div>' +
+        '</div>' +
+        (c.items.length > 1 ? '<button class="more" data-more="' + ci + '">查看更多 ' + (c.items.length - 1) + ' 件 →</button>' : "") +
+        '<div class="grid" id="grid' + ci + '" style="display:none"></div>' +
+      '</div>';
+    });
+    $("#cats").innerHTML = html;
+    cats.forEach(function (c, ci) {
+      var g = $("#grid" + ci);
+      if (!g) return;
+      g.innerHTML = c.items.slice(1).map(cardHTML).join("");
+    });
+  }
+
+  function phBox() {
+    return '<div class="ph"><span>通</span><em>實物照片待補</em></div>';
+  }
+
+  function cardHTML(p) {
+    return '<div class="card" data-open="' + esc(p.id) + '">' +
+      '<div class="card-img">' + (p.images && p.images[0] ? '<img src="' + esc(p.images[0].thumb) + '" alt="' + esc(p.name) + '" loading="lazy">' : phBox()) + '</div>' +
+      '<div class="card-body"><div class="card-cat">' + esc(p.cat) + '</div>' +
+      '<div class="card-name">' + esc(p.name) + '</div>' +
+      '<div class="card-price">' + esc(p.price_text) + '</div>' +
+      '<div class="card-sku">' + esc(p.sku || "") + '</div>' +
+      '<span class="badge">請諮詢後下單</span></div></div>';
+  }
+
+  /* ============ 渲染：服務 ============ */
+  function renderSvc() {
+    var list = (data.services || []).slice().sort(function (a, b) { return (a.price == null ? 9e9 : a.price) - (b.price == null ? 9e9 : b.price); });
+    $("#svcCount").textContent = list.length + " 項服務";
+    function svcHTML(s) {
+      return '<div class="svc"><div class="svc-sku">' + esc(s.sku || "") + '</div><h3>' + esc(s.cat) + '</h3><p>' + esc(s.desc) + '</p>' +
+        '<div class="svc-price">' + esc(s.price_text) + '</div>' +
+        '<div class="svc-cta">私訊確認 → 取得付款連結</div></div>';
+    }
+    $("#svcTop").innerHTML = list.slice(0, 4).map(svcHTML).join("");
+    $("#svcRest").innerHTML = list.slice(4).map(svcHTML).join("");
+    var more = $("#svcMore");
+    if (list.length <= 4) { more.style.display = "none"; } else { more.style.display = "inline-flex"; more.textContent = "查看全部 " + list.length + " 項服務 →"; }
+    return list;
+  }
+
+  /* ============ 渲染：支付 / 聯絡 ============ */
+  function renderPay() {
+    var list = data.payments || [];
+    $("#payList").innerHTML = list.map(function (p) {
+      return '<div class="pay"><h4>' + esc(p.name) + '</h4><p>' + esc(p.desc || "") + '</p>' +
+        (p.link ? '<a class="pay-link" href="' + esc(p.link) + '" target="_blank" rel="noopener">' + esc(p.link.replace(/https?:\/\//, "")) + '</a>' : '<span class="badge" style="margin-top:10px">確認後生成連結</span>') + '</div>';
+    }).join("");
+  }
+
+  function renderContacts() {
+    var list = data.contacts || [];
+    $("#ctList").innerHTML = list.map(function (c) {
+      return '<div class="ct"><div class="ct-k">' + esc(c.label) + '</div>' +
+        '<div class="ct-v">' + esc(c.value) + '</div>' +
+        (c.sub ? '<div class="ct-sub">' + esc(c.sub) + '</div>' : "") +
+        '<div class="ct-acts">' + (c.link ? '<a class="mini" href="' + esc(c.link) + '" target="_blank" rel="noopener">開啟</a>' : "") +
+        '<button class="mini" data-copy="' + esc(c.copy || c.value) + '">複製</button></div></div>';
+    }).join("");
+  }
+
+  /* ============ 詳情 + 圖片滑動 ============ */
+  var cur = null, idx = 0, tStartX = null, tDx = 0;
+  function openProduct(id) {
+    var p = null;
+    (data.categories || []).forEach(function (c) { c.items.forEach(function (x) { if (x.id === id) p = x; }); });
+    if (!p) return;
+    cur = p; idx = 0;
+    $("#dtCat").textContent = p.cat;
+    $("#dtName").textContent = p.name;
+    $("#dtPrice").textContent = p.price_text;
+    var skuEl = $("#dtSku");
+    if (skuEl) { skuEl.textContent = p.sku ? "編號 " + p.sku : "編號 待編"; skuEl.style.display = p.sku ? "inline-flex" : "none"; }
+    $("#dtNote").textContent = p.note || "照片為實物拍攝。尺寸、材質、庫存與配送方式請私訊確認，確認後我們提供報價與付款連結。";
+    var imgs = p.images && p.images.length ? p.images : [];
+    $("#galTrack").innerHTML = imgs.length ? imgs.map(function (i) { return '<img src="' + esc(i.full) + '" alt="' + esc(p.name) + '">'; }).join("") : '<div style="aspect-ratio:4/5;display:grid;place-items:center;color:var(--dim-2);font-size:13px">圖片待補</div>';
+    $("#thumbs").innerHTML = imgs.length > 1 ? imgs.map(function (i, n) { return '<img src="' + esc(i.thumb) + '" data-i="' + n + '" class="' + (n === 0 ? "on" : "") + '">'; }).join("") : "";
+    $("#galDots").innerHTML = imgs.length > 1 ? imgs.map(function (i, n) { return '<button class="dot' + (n === 0 ? " on" : "") + '" data-i="' + n + '"></button>'; }).join("") : "";
+    var wa = data.contacts && data.contacts.find(function (c) { return c.type === "whatsapp"; });
+    var ln = data.contacts && data.contacts.find(function (c) { return c.type === "line"; });
+    var em = data.contacts && data.contacts.find(function (c) { return c.type === "email"; });
+    var ask = "我想諮詢「" + p.name + "」（" + p.price_text + "）";
+    $("#dtActs").innerHTML =
+      (wa ? '<a class="btn btn-main" href="' + esc(wa.link) + '" target="_blank" rel="noopener">WhatsApp 諮詢</a>' : "") +
+      (ln ? '<a class="btn" href="' + esc(ln.link || "#contact") + '">LINE 諮詢</a>' : "") +
+      (em ? '<a class="btn" href="mailto:' + esc(em.value) + '?subject=' + encodeURIComponent("諮詢：" + p.name) + '&body=' + encodeURIComponent(ask) + '">寫信詢問</a>' : "");
+    setSlide(0, true);
+    $("#mask").classList.add("on");
+    document.body.style.overflow = "hidden";
+    $("#sheet").scrollTop = 0;
+  }
+
+  function setSlide(n, instant) {
+    var imgs = cur && cur.images ? cur.images : [];
+    var max = Math.max(0, imgs.length - 1);
+    idx = Math.max(0, Math.min(n, max));
+    var tr = $("#galTrack");
+    tr.style.transition = instant ? "none" : "";
+    tr.style.transform = "translateX(" + (-idx * 100) + "%)";
+    if (instant) setTimeout(function () { tr.style.transition = ""; }, 30);
+    $$(".dot").forEach(function (d, i) { d.classList.toggle("on", i === idx); });
+    $$("#thumbs img").forEach(function (t, i) { t.classList.toggle("on", i === idx); });
+  }
+
+  function closeSheet() { $("#mask").classList.remove("on"); document.body.style.overflow = ""; }
+
+  /* ============ 事件 ============ */
+  document.addEventListener("click", function (e) {
+    var open = e.target.closest("[data-open]");
+    if (open) { var id = open.getAttribute("data-open"); if (id) openProduct(id); return; }
+    var more = e.target.closest("[data-more]");
+    if (more) {
+      var g = $("#grid" + more.getAttribute("data-more"));
+      var on = g.style.display !== "none";
+      g.style.display = on ? "none" : "grid";
+      more.textContent = (on ? "查看更多 " : "收起 ") + (g.children.length) + " 件 →";
+      if (!on) g.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      return;
+    }
+    var cp = e.target.closest("[data-copy]");
+    if (cp) {
+      var txt = cp.getAttribute("data-copy");
+      if (navigator.clipboard) navigator.clipboard.writeText(txt).then(function () { toast("已複製：" + txt); });
+      else toast(txt);
+      return;
+    }
+    var thumb = e.target.closest("#thumbs img");
+    if (thumb) { setSlide(Number(thumb.getAttribute("data-i"))); return; }
+    var dot = e.target.closest(".dot");
+    if (dot) { setSlide(Number(dot.getAttribute("data-i"))); return; }
+  });
+
+  $("#dtClose").addEventListener("click", closeSheet);
+  $("#mask").addEventListener("click", function (e) { if (e.target === $("#mask")) closeSheet(); });
+  $("#galPrev").addEventListener("click", function () { setSlide(idx - 1); });
+  $("#galNext").addEventListener("click", function () { setSlide(idx + 1); });
+
+  var track = $("#galTrack");
+  track.addEventListener("touchstart", function (e) { tStartX = e.touches[0].clientX; tDx = 0; }, { passive: true });
+  track.addEventListener("touchmove", function (e) {
+    if (tStartX == null) return;
+    tDx = e.touches[0].clientX - tStartX;
+    track.style.transition = "none";
+    track.style.transform = "translateX(calc(" + (-idx * 100) + "% + " + tDx + "px))";
+  }, { passive: true });
+  track.addEventListener("touchend", function () {
+    var w = track.clientWidth || 1;
+    if (Math.abs(tDx) > w * 0.18) setSlide(idx + (tDx < 0 ? 1 : -1));
+    else setSlide(idx);
+    tStartX = null;
+  });
+
+  var svcOpen = false;
+  $("#svcMore").addEventListener("click", function () {
+    svcOpen = !svcOpen;
+    $("#svcRest").style.display = svcOpen ? "grid" : "none";
+    var n = (data.services || []).length;
+    this.textContent = svcOpen ? "收起服務 —" : "查看全部 " + n + " 項服務 →";
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") { closeSheet(); }
+    if ($("#mask").classList.contains("on")) {
+      if (e.key === "ArrowLeft") setSlide(idx - 1);
+      if (e.key === "ArrowRight") setSlide(idx + 1);
+    }
+  });
+
+  function renderAll() { renderCats(); renderSvc(); renderPay(); renderContacts(); }
+  renderAll();
+
+  /* ============ 管理：WebAuthn（Windows Hello） ============ */
+  var KEY = "tongtai_admin_cred";
+  var admOpen = false;
+
+  function b64(buf) { var a = new Uint8Array(buf), s = ""; for (var i = 0; i < a.length; i++) s += String.fromCharCode(a[i]); return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+  function unb64(str) { var s = str.replace(/-/g, "+").replace(/_/g, "/"); while (s.length % 4) s += "="; var a = atob(s), u = new Uint8Array(a.length); for (var i = 0; i < a.length; i++) u[i] = a.charCodeAt(i); return u; }
+
+  function supported() { return !!(window.PublicKeyCredential && navigator.credentials && window.isSecureContext); }
+
+  function register() {
+    return navigator.credentials.create({
+      publicKey: {
+        challenge: crypto.getRandomValues(new Uint8Array(32)),
+        rp: { name: "通泰文化 Tongtai Wenhua" },
+        user: { id: crypto.getRandomValues(new Uint8Array(16)), name: "tongtai-admin", displayName: "通泰文化 管理員" },
+        pubKeyCredParams: [{ type: "public-key", alg: -257 }, { type: "public-key", alg: -7 }],
+        authenticatorSelection: { authenticatorAttachment: "platform", userVerification: "required", residentKey: "preferred" },
+        timeout: 60000,
+        attestation: "none"
+      }
+    }).then(function (cred) { localStorage.setItem(KEY, b64(cred.rawId)); return true; });
+  }
+
+  function verify() {
+    var id = localStorage.getItem(KEY);
+    if (!id) return Promise.reject(new Error("no-cred"));
+    return navigator.credentials.get({
+      publicKey: {
+        challenge: crypto.getRandomValues(new Uint8Array(32)),
+        allowCredentials: [{ type: "public-key", id: unb64(id) }],
+        userVerification: "required",
+        timeout: 60000
+      }
+    }).then(function (a) { return !!a; });
+  }
+
+  $("#lockBtn").addEventListener("click", function () {
+    var msg = $("#lockMsg");
+    if (!supported()) {
+      msg.textContent = "目前的瀏覽環境不支援指紋驗證（需 HTTPS 與 Windows Hello）。請用上線後的網址進入管理頁。";
+      return;
+    }
+    var has = localStorage.getItem(KEY);
+    msg.textContent = has ? "請在系統視窗完成 Windows Hello 驗證…" : "首次使用：請在系統視窗用指紋（或 PIN）註冊此裝置…";
+    var p = has ? verify() : register();
+    p.then(function () {
+      msg.textContent = "驗證通過";
+      unlockAdmin();
+    }).catch(function (err) {
+      localStorage.removeItem(KEY);
+      msg.textContent = "驗證未完成：" + (err && err.name === "NotAllowedError" ? "已取消或被系統拒絕" : (err.message || err));
+    });
+  });
+
+  function unlockAdmin() {
+    admOpen = true;
+    $("#lockView").style.display = "none";
+    $("#admView").style.display = "block";
+    $("#admBar").classList.add("on");
+    buildAdmin();
+  }
+
+  $("#admExit").addEventListener("click", closeAdmin);
+  $("#lockExit").addEventListener("click", closeAdmin);
+  function closeAdmin() { admOpen = false; $("#adm").classList.remove("on"); $("#admBar").classList.remove("on"); $("#lockView").style.display = ""; $("#admView").style.display = "none"; $("#lockMsg").textContent = ""; location.hash = "top"; }
+
+  $("#admLink").addEventListener("click", function (e) {
+    e.preventDefault();
+    $("#adm").classList.add("on");
+    document.body.style.overflow = "hidden";
+    openAdmin();
+  });
+
+  function openAdmin() {
+    if (admOpen) { $("#adm").classList.add("on"); $("#admBar").classList.add("on"); return; }
+    $("#lockView").style.display = "";
+    $("#admView").style.display = "none";
+    $("#admBar").classList.remove("on");
+    $("#adm").classList.add("on");
+    document.body.style.overflow = "hidden";
+  }
+
+  $$(".tab").forEach(function (t) {
+    t.addEventListener("click", function () {
+      $$(".tab").forEach(function (x) { x.classList.remove("on"); });
+      t.classList.add("on");
+      ["p", "s", "c", "y"].forEach(function (k) { $("#sec" + k.toUpperCase()).classList.toggle("on", k === t.getAttribute("data-tab")); });
+    });
+  });
+
+  /* ---- 管理表单 ---- */
+  function buildAdmin() {
+    /* 器物 */
+    var catsHtml = (data.categories || []).map(function (c, ci) {
+      var items = c.items.map(function (p, pi) {
+        return '<div class="row"><div class="row-line">' +
+          '<div class="f"><label>名稱</label><input data-p="' + ci + '" data-i="' + pi + '" data-k="name" value="' + esc(p.name) + '"></div>' +
+          '<div class="f"><label>價格（數字，可留空＝面議）</label><input data-p="' + ci + '" data-i="' + pi + '" data-k="price" value="' + (p.price == null ? "" : p.price) + '"></div>' +
+          '</div><div class="row-line">' +
+          '<div class="f"><label>顯示價文字</label><input data-p="' + ci + '" data-i="' + pi + '" data-k="price_text" value="' + esc(p.price_text) + '"></div>' +
+          '<div class="f"><label>說明</label><input data-p="' + ci + '" data-i="' + pi + '" data-k="note" value="' + esc(p.note || "") + '"></div>' +
+          '</div><div class="row-acts"><span style="font-size:11px;color:var(--dim-2)">圖片 ' + (p.images ? p.images.length : 0) + ' 張</span>' +
+          '<button class="del" data-delimg="' + ci + '|' + pi + '">刪除首圖</button>' +
+          '<button class="del" data-delprod="' + ci + '|' + pi + '">刪除此商品</button></div></div>';
+      }).join("");
+      return '<div style="margin-bottom:18px"><div class="row-acts" style="margin-bottom:8px"><b style="font-size:13px;font-family:var(--serif)">' + esc(c.name) + '</b><span style="font-size:11px;color:var(--dim-2)">' + c.items.length + ' 件</span></div>' + items + '</div>';
+    }).join("");
+    $("#secP").innerHTML = catsHtml + '<button class="add" id="addProd">＋ 新增商品（歸入新類目）</button>';
+
+    /* 服務 */
+    $("#secS").innerHTML = (data.services || []).map(function (s, i) {
+      return '<div class="row"><div class="row-line">' +
+        '<div class="f"><label>名稱</label><input data-s="' + i + '" data-k="cat" value="' + esc(s.cat) + '"></div>' +
+        '<div class="f"><label>價格（數字）</label><input data-s="' + i + '" data-k="price" value="' + (s.price == null ? "" : s.price) + '"></div></div>' +
+        '<div class="f"><label>描述</label><textarea data-s="' + i + '" data-k="desc">' + esc(s.desc) + '</textarea></div>' +
+        '<div class="row-acts"><button class="del" data-delsvc="' + i + '">刪除</button></div></div>';
+    }).join("") + '<button class="add" id="addSvc">＋ 新增服務</button>';
+
+    /* 聯絡 */
+    $("#secC").innerHTML = (data.contacts || []).map(function (c, i) {
+      return '<div class="row"><div class="row-line">' +
+        '<div class="f"><label>標籤</label><input data-c="' + i + '" data-k="label" value="' + esc(c.label) + '"></div>' +
+        '<div class="f"><label>值（帳號／號碼）</label><input data-c="' + i + '" data-k="value" value="' + esc(c.value) + '"></div></div>' +
+        '<div class="f"><label>連結（可留空）</label><input data-c="' + i + '" data-k="link" value="' + esc(c.link || "") + '"></div>' +
+        '<div class="row-acts"><button class="del" data-delct="' + i + '">刪除</button></div></div>';
+    }).join("") + '<button class="add" id="addCt">＋ 新增聯絡方式</button>';
+
+    /* 支付 */
+    $("#secY").innerHTML = (data.payments || []).map(function (p, i) {
+      return '<div class="row"><div class="row-line">' +
+        '<div class="f"><label>名稱</label><input data-y="' + i + '" data-k="name" value="' + esc(p.name) + '"></div>' +
+        '<div class="f"><label>連結</label><input data-y="' + i + '" data-k="link" value="' + esc(p.link || "") + '"></div></div>' +
+        '<div class="f"><label>說明</label><input data-y="' + i + '" data-k="desc" value="' + esc(p.desc || "") + '"></div>' +
+        '<div class="row-acts"><button class="del" data-dely="' + i + '">刪除</button></div></div>';
+    }).join("") + '<button class="add" id="addPay">＋ 新增支付方式</button>';
+
+    bindAdmin();
+  }
+
+  function bindAdmin() {
+    $$("#secP input,#secS input,#secS textarea,#secC input,#secY input").forEach(function (inp) {
+      inp.addEventListener("input", function () {
+        var v = inp.value;
+        if (inp.hasAttribute("data-p")) {
+          var p = data.categories[+inp.getAttribute("data-p")].items[+inp.getAttribute("data-i")];
+          var k = inp.getAttribute("data-k");
+          if (k === "price") p.price = v === "" ? null : Number(v);
+          else p[k] = v;
+        } else if (inp.hasAttribute("data-s")) {
+          var s = data.services[+inp.getAttribute("data-s")], ks = inp.getAttribute("data-k");
+          if (ks === "price") s.price = v === "" ? null : Number(v); else s[ks] = v;
+        } else if (inp.hasAttribute("data-c")) {
+          data.contacts[+inp.getAttribute("data-c")][inp.getAttribute("data-k")] = v;
+        } else if (inp.hasAttribute("data-y")) {
+          data.payments[+inp.getAttribute("data-y")][inp.getAttribute("data-k")] = v;
+        }
+      });
+    });
+    $$("[data-delprod]").forEach(function (b) { b.onclick = function () {
+      var a = b.getAttribute("data-delprod").split("|");
+      data.categories[+a[0]].items.splice(+a[1], 1); buildAdmin(); };
+    });
+    $$("[data-delimg]").forEach(function (b) { b.onclick = function () {
+      var a = b.getAttribute("data-delimg").split("|");
+      var p = data.categories[+a[0]].items[+a[1]]; if (p.images && p.images.length) { p.images.shift(); buildAdmin(); } };
+    });
+    $$("[data-delsvc]").forEach(function (b) { b.onclick = function () { data.services.splice(+b.getAttribute("data-delsvc"), 1); buildAdmin(); }; });
+    $$("[data-delct]").forEach(function (b) { b.onclick = function () { data.contacts.splice(+b.getAttribute("data-delct"), 1); buildAdmin(); }; });
+    $$("[data-dely]").forEach(function (b) { b.onclick = function () { data.payments.splice(+b.getAttribute("data-dely"), 1); buildAdmin(); }; });
+
+    $("#addProd").onclick = function () {
+      var name = prompt("新類目名稱（例如：香品）"); if (!name) return;
+      var pname = prompt("第一件商品名稱"); if (!pname) return;
+      var price = prompt("價格（美元數字，留空＝面議）", "");
+      data.categories.push({ name: name, low: price ? Number(price) : 9e9, items: [{ id: "n" + Date.now(), cat: name, name: pname, price: price ? Number(price) : null, price_raw: price || "面議", price_text: price ? "US$" + price : "價格面議", note: "", images: [] }] });
+      buildAdmin();
+    };
+    $("#addSvc").onclick = function () {
+      var name = prompt("服務名稱"); if (!name) return;
+      var price = prompt("價格（美元數字）", ""); var desc = prompt("一句話描述", "") || "";
+      data.services.push({ cat: name, desc: desc, price: price ? Number(price) : null, price_text: price ? "US$" + price : "價格面議", price_raw: price || "" });
+      buildAdmin();
+    };
+    $("#addCt").onclick = function () {
+      var label = prompt("標籤（例如 WhatsApp）"); if (!label) return;
+      var value = prompt("帳號／號碼", ""); var link = prompt("連結（可留空）", "") || "";
+      data.contacts.push({ type: "custom", label: label, value: value || "", link: link });
+      buildAdmin();
+    };
+    $("#addPay").onclick = function () {
+      var name = prompt("支付方式名稱"); if (!name) return;
+      var link = prompt("付款連結（可留空）", "") || "";
+      data.payments.push({ name: name, desc: "", link: link });
+      buildAdmin();
+    };
+  }
+
+  $("#admApply").onclick = function () {
+    try { localStorage.setItem(LS, JSON.stringify(data)); } catch (e) {}
+    renderAll(); toast("已套用到頁面（本機預覽）");
+  };
+  $("#admReset").onclick = function () {
+    data = JSON.parse(JSON.stringify(ORIGIN));
+    try { localStorage.removeItem(LS); } catch (e) {}
+    renderAll(); buildAdmin(); toast("已還原為原始內容");
+  };
+  $("#admJson").onclick = function () { download("catalog.json", JSON.stringify(data, null, 1), "application/json"); };
+
+  $("#admExport").onclick = function () {
+    var btn = this; btn.textContent = "產生中…";
+    fetch(location.href).then(function (r) { return r.text(); }).then(function (src) {
+      var a = src.indexOf("/*CATALOG_START*/"), b = src.indexOf("/*CATALOG_END*/");
+      if (a < 0 || b < 0) throw new Error("找不到資料區塊");
+      var block = "/*CATALOG_START*/\nwindow.__CATALOG__ = " + JSON.stringify(data) + ";\n/*CATALOG_END*/";
+      var out = src.slice(0, a) + block + src.slice(b + "/*CATALOG_END*/".length);
+      download("通泰文化商城.html", out, "text/html");
+      btn.textContent = "匯出頁面";
+      toast("已下載新頁面，交回即可上線");
+    }).catch(function (e) { btn.textContent = "匯出頁面"; toast("匯出失敗：" + e.message); });
+  };
+
+  function download(name, text, type) {
+    var blob = new Blob([text], { type: type + ";charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = name; document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 400);
+  }
+})();
+</script>
+</body>
+</html>
