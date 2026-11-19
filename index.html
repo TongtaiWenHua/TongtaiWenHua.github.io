@@ -585,7 +585,7 @@ window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"
         var img = f && f.images && f.images[0] ? '<img src="' + esc(f.images[0].thumb) + '" alt="' + esc(c.name) + '" loading="lazy">' : phBox();
         return '<div class="col" data-goto="cat-' + ci + '">' + img +
           '<div class="col-lb"><div class="col-n">' + esc(c.name) + (c.name_en ? '<span class="nm-en" style="color:#e2d9ca">' + esc(c.name_en) + '</span>' : '') + '</div>' +
-          '<div class="col-m">' + (f && f.price != null ? '自 ' + esc(f.price_text) + ' 起' : '面議') + '</div></div></div>';
+          '<div class="col-m">' + (f && f.price != null ? esc(f.price_text) + ' 起' : '面議') + '</div></div></div>';
       }).join("");
     }
   }
