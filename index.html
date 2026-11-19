@@ -204,6 +204,9 @@ p{margin:0}
 .row-acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .del{font-size:11.5px;color:var(--cin-l);border:1px solid rgba(194,84,63,.35);padding:5px 11px;border-radius:var(--r)}
 .add{font-size:12.5px;color:var(--gold);border:1px dashed var(--line);padding:9px 16px;border-radius:var(--r);width:100%;margin-top:6px}
+.adm-th{width:52px;height:52px;object-fit:cover;border:1px solid var(--line);margin:0 6px 6px 0;vertical-align:middle;cursor:pointer}
+.adm-th-wrap{display:inline-block;position:relative}
+.adm-th-x{position:absolute;top:-6px;right:-2px;width:16px;height:16px;line-height:15px;text-align:center;border-radius:50%;background:#a83b2f;color:#fff;border:0;font-size:11px;cursor:pointer}
 .adm-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(14,16,21,.95);border-top:1px solid var(--line-2);padding:10px 16px;display:none;gap:8px;justify-content:center;flex-wrap:wrap;z-index:130}
 .adm-bar.on{display:flex}
 .lock{max-width:520px;margin:12vh auto 0;text-align:center;padding:0 20px}
@@ -239,9 +242,9 @@ p{margin:0}
   <div class="stars" aria-hidden="true"></div>
   <div class="glow" aria-hidden="true"></div>
   <div class="wrap hero-in">
-    <div class="tag">器物 · 命理 · 年度運勢</div>
-    <h1>看得懂器物的人，<br>心裡比較有底。</h1>
-    <p class="hero-sub">通泰文化以命盤、節氣與東方器物為工作方法：一對一命理諮詢，與可長期持有的器物。線上諮詢後下單，PayPal 收款，國際快遞配送。</p>
+    <div class="tag" data-tx="hero.tag">器物 · 命理 · 年度運勢</div>
+    <h1 data-tx="hero.title" data-multi="1">看得懂器物的人，<br>心裡比較有底。</h1>
+    <p class="hero-sub" data-tx="hero.sub">通泰文化以命盤、節氣與東方器物為工作方法：一對一命理諮詢，與可長期持有的器物。線上諮詢後下單，PayPal 收款，國際快遞配送。</p>
     <div class="acts">
       <a class="btn btn-main" href="#objects">看器物</a>
       <a class="btn" href="#services">看服務</a>
@@ -259,8 +262,8 @@ p{margin:0}
 <section class="sec" id="objects">
   <div class="wrap">
     <div class="sec-hd">
-      <h2>東方器物</h2>
-      <div class="sec-note">依類目分區 · 每區先看該類最低價</div>
+      <h2 data-tx="obj.title">東方器物</h2>
+      <div class="sec-note" data-tx="obj.note">依類目分區 · 每區先看該類最低價</div>
       <div class="sec-aside" id="objCount"></div>
     </div>
     <div id="cats"></div>
@@ -270,8 +273,8 @@ p{margin:0}
 <section class="sec" id="services">
   <div class="wrap">
     <div class="sec-hd">
-      <h2>諮詢服務</h2>
-      <div class="sec-note">線上交付 · 付款後 48 小時內排序</div>
+      <h2 data-tx="svc.title">諮詢服務</h2>
+      <div class="sec-note" data-tx="svc.note">線上交付 · 付款後 48 小時內排序</div>
       <div class="sec-aside" id="svcCount"></div>
     </div>
     <div class="svc-grid" id="svcTop"></div>
@@ -282,29 +285,29 @@ p{margin:0}
 
 <section class="sec" id="payment">
   <div class="wrap">
-    <div class="sec-hd"><h2>付款與運送</h2><div class="sec-note">每筆交易確認後生成付款連結</div></div>
+    <div class="sec-hd"><h2 data-tx="pay.title">付款與運送</h2><div class="sec-note" data-tx="pay.note">每筆交易確認後生成付款連結</div></div>
     <div class="steps">
-      <div class="step"><i>01</i><b>選定品項</b><span>記下器物或服務的編號（TT-／TS-），連同數量一起告訴我們。</span></div>
-      <div class="step"><i>02</i><b>確認報價</b><span>我們核對庫存、尺寸、配送方式與運費，回覆最終金額（美元）。</span></div>
-      <div class="step"><i>03</i><b>生成連結</b><span>依該筆金額與編號生成一次性 PayPal 付款連結，效期 24 小時。</span></div>
+      <div class="step"><i>01</i><b data-tx="step1.t">選定品項</b><span data-tx="step1.d">記下器物或服務的編號（TT-／TS-），連同數量一起告訴我們。</span></div>
+      <div class="step"><i>02</i><b data-tx="step2.t">確認報價</b><span data-tx="step2.d">我們核對庫存、尺寸、配送方式與運費，回覆最終金額（美元）。</span></div>
+      <div class="step"><i>03</i><b data-tx="step3.t">生成連結</b><span data-tx="step3.d">依該筆金額與編號生成一次性 PayPal 付款連結，效期 24 小時。</span></div>
     </div>
     <div class="pay-grid" id="payList"></div>
     <div class="consult-band">
-      <b>每筆交易單獨生成付款連結</b>
-      <span>全站不預設任何收款連結。所有器物與服務均先確認品項編號、庫存、尺寸與運費，我們再依該筆交易金額生成付款連結；金額與備註會與訂單內容一致，方便雙方對帳。</span>
+      <b data-tx="band.t">每筆交易單獨生成付款連結</b>
+      <span data-tx="band.d">全站不預設任何收款連結。所有器物與服務均先確認品項編號、庫存、尺寸與運費，我們再依該筆交易金額生成付款連結；金額與備註會與訂單內容一致，方便雙方對帳。</span>
     </div>
   </div>
 </section>
 
 <section class="sec" id="contact">
   <div class="wrap">
-    <div class="sec-hd"><h2>聯絡</h2><div class="sec-note">任選一種，回覆最快是 WhatsApp</div></div>
+    <div class="sec-hd"><h2 data-tx="ct.title">聯絡</h2><div class="sec-note" data-tx="ct.note">任選一種，回覆最快是 WhatsApp</div></div>
     <div class="ct-grid" id="ctList"></div>
   </div>
 </section>
 
 <footer class="ft"><div class="wrap ft-in">
-  <span>通泰文化 · Tongtai Wenhua</span>
+  <span data-tx="foot.brand">通泰文化 · Tongtai Wenhua</span>
   <span>v1.0 · <a href="#admin" id="admLink">管理</a></span>
 </div></footer>
 
@@ -325,7 +328,7 @@ p{margin:0}
       <div class="dt-price" id="dtPrice"></div>
       <div class="dt-sku" id="dtSku"></div>
       <p class="dt-note" id="dtNote"></p>
-      <div class="dt-ask"><b>請諮詢後下單</b>下單時請提供上方編號，我們核對庫存與運費後，依該筆金額生成付款連結。</div>
+      <div class="dt-ask"><b data-tx="dt.ask.t">請諮詢後下單</b><span data-tx="dt.ask.d">下單時請提供上方編號，我們核對庫存與運費後，依該筆金額生成付款連結。</span></div>
       <div class="dt-acts" id="dtActs"></div>
     </div>
   </div></div>
@@ -351,6 +354,7 @@ p{margin:0}
           <button class="tab" data-tab="s">服務</button>
           <button class="tab" data-tab="c">聯絡</button>
           <button class="tab" data-tab="y">支付</button>
+          <button class="tab" data-tab="t">文案</button>
         </div>
         <button class="mini" id="admExit">關閉</button>
       </div>
@@ -359,6 +363,7 @@ p{margin:0}
       <div class="adm-sec" id="secS"></div>
       <div class="adm-sec" id="secC"></div>
       <div class="adm-sec" id="secY"></div>
+      <div class="adm-sec" id="secT"></div>
     </div>
   </div>
   <div class="adm-bar" id="admBar">
@@ -372,6 +377,10 @@ p{margin:0}
 <div class="toast" id="toast"></div>
 
 <script>
+/*SITE_START*/
+window.__SITE__ = {};
+/*SITE_END*/
+
 /*CATALOG_START*/
 window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"items":[{"id":"r50","row":50,"cat":"手机壁纸","name":"手機壁紙・一對一定製","price_raw":"3","price":3.0,"price_text":"US$3","note":"依你的照片、機型與風格一對一繪製；下單前請先私訊確認尺寸與交付格式。","images":[{"full":"assets/p/p092.jpg","thumb":"assets/p/p092_s.jpg"},{"full":"assets/p/p093.jpg","thumb":"assets/p/p093_s.jpg"},{"full":"assets/p/p094.jpg","thumb":"assets/p/p094_s.jpg"}],"sku":"TT-048"}]},{"name":"挂饰","count":5,"low":199.0,"items":[{"id":"r18","row":18,"cat":"挂饰","name":"福禄车包挂饰","price_raw":"199","price":199.0,"price_text":"US$199","note":"","images":[{"full":"assets/p/p021.jpg","thumb":"assets/p/p021_s.jpg"},{"full":"assets/p/p022.jpg","thumb":"assets/p/p022_s.jpg"}],"sku":"TT-016"},{"id":"r21","row":21,"cat":"挂饰","name":"卷轴挂历","price_raw":"288","price":288.0,"price_text":"US$288","note":"","images":[{"full":"assets/p/p027.jpg","thumb":"assets/p/p027_s.jpg"},{"full":"assets/p/p028.jpg","thumb":"assets/p/p028_s.jpg"}],"sku":"TT-019"},{"id":"r40","row":40,"cat":"挂饰","name":"扎基拉姆朱砂挂坠","price_raw":"588","price":588.0,"price_text":"US$588","note":"","images":[{"full":"assets/p/p072.jpg","thumb":"assets/p/p072_s.jpg"},{"full":"assets/p/p073.jpg","thumb":"assets/p/p073_s.jpg"}],"sku":"TT-038"},{"id":"r27","row":27,"cat":"挂饰","name":"雷击枣木挂坠","price_raw":"799","price":799.0,"price_text":"US$799","note":"","images":[{"full":"assets/p/p038.jpg","thumb":"assets/p/p038_s.jpg"},{"full":"assets/p/p039.jpg","thumb":"assets/p/p039_s.jpg"}],"sku":"TT-025"},{"id":"r26","row":26,"cat":"挂饰","name":"手绘卷轴挂饰","price_raw":"1599","price":1599.0,"price_text":"US$1,599","note":"","images":[{"full":"assets/p/p036.jpg","thumb":"assets/p/p036_s.jpg"},{"full":"assets/p/p037.jpg","thumb":"assets/p/p037_s.jpg"}],"sku":"TT-024"}]},{"name":"手镯手环手串","count":13,"low":299.0,"items":[{"id":"r23","row":23,"cat":"手镯手环手串","name":"97%纯阳朱砂","price_raw":"299","price":299.0,"price_text":"US$299","note":"","images":[{"full":"assets/p/p031.jpg","thumb":"assets/p/p031_s.jpg"},{"full":"assets/p/p032.jpg","thumb":"assets/p/p032_s.jpg"}],"sku":"TT-021"},{"id":"r42","row":42,"cat":"手镯手环手串","name":"生肖化太岁手串","price_raw":"599-999","price":599.0,"price_text":"US$599–999","note":"","images":[{"full":"assets/p/p076.jpg","thumb":"assets/p/p076_s.jpg"},{"full":"assets/p/p077.jpg","thumb":"assets/p/p077_s.jpg"}],"sku":"TT-040"},{"id":"r28","row":28,"cat":"手镯手环手串","name":"雷击枣木玉手串","price_raw":"655","price":655.0,"price_text":"US$655","note":"","images":[{"full":"assets/p/p040.jpg","thumb":"assets/p/p040_s.jpg"},{"full":"assets/p/p041.jpg","thumb":"assets/p/p041_s.jpg"}],"sku":"TT-026"},{"id":"r22","row":22,"cat":"手镯手环手串","name":"祥云手串-龙凤眸珠","price_raw":"788","price":788.0,"price_text":"US$788","note":"","images":[{"full":"assets/p/p029.jpg","thumb":"assets/p/p029_s.jpg"},{"full":"assets/p/p030.jpg","thumb":"assets/p/p030_s.jpg"}],"sku":"TT-020"},{"id":"r24","row":24,"cat":"手镯手环手串","name":"和田玉白鹤童子聚气养身润心手串","price_raw":"795","price":795.0,"price_text":"US$795","note":"","images":[{"full":"assets/p/p033.jpg","thumb":"assets/p/p033_s.jpg"},{"full":"assets/p/p034.jpg","thumb":"assets/p/p034_s.jpg"}],"sku":"TT-022"},{"id":"r32","row":32,"cat":"手镯手环手串","name":"雷击枣木108颗多宝手串","price_raw":"888","price":888.0,"price_text":"US$888","note":"","images":[{"full":"assets/p/p047.jpg","thumb":"assets/p/p047_s.jpg"},{"full":"assets/p/p048.jpg","thumb":"assets/p/p048_s.jpg"}],"sku":"TT-030"},{"id":"r38","row":38,"cat":"手镯手环手串","name":"青金石安神手串","price_raw":"888","price":888.0,"price_text":"US$888","note":"","images":[{"full":"assets/p/p068.jpg","thumb":"assets/p/p068_s.jpg"},{"full":"assets/p/p069.jpg","thumb":"assets/p/p069_s.jpg"}],"sku":"TT-036"},{"id":"r31","row":31,"cat":"手镯手环手串","name":"黑驴蹄金蟾守财手串","price_raw":"888","price":888.0,"price_text":"US$888","note":"","images":[{"full":"assets/p/p045.jpg","thumb":"assets/p/p045_s.jpg"},{"full":"assets/p/p046.jpg","thumb":"assets/p/p046_s.jpg"}],"sku":"TT-029"},{"id":"r36","row":36,"cat":"手镯手环手串","name":"水晶手串","price_raw":"999","price":999.0,"price_text":"US$999","note":"","images":[{"full":"assets/p/p055.jpg","thumb":"assets/p/p055_s.jpg"},{"full":"assets/p/p056.jpg","thumb":"assets/p/p056_s.jpg"},{"full":"assets/p/p057.jpg","thumb":"assets/p/p057_s.jpg"},{"full":"assets/p/p058.jpg","thumb":"assets/p/p058_s.jpg"},{"full":"assets/p/p059.jpg","thumb":"assets/p/p059_s.jpg"}],"sku":"TT-034"},{"id":"r39","row":39,"cat":"手镯手环手串","name":"碧玉木属手串","price_raw":"999","price":999.0,"price_text":"US$999","note":"","images":[{"full":"assets/p/p070.jpg","thumb":"assets/p/p070_s.jpg"},{"full":"assets/p/p071.jpg","thumb":"assets/p/p071_s.jpg"}],"sku":"TT-037"},{"id":"r8","row":8,"cat":"手镯手环手串","name":"新疆和田玉手串","price_raw":"1599","price":1599.0,"price_text":"US$1,599","note":"","images":[{"full":"assets/p/p009.jpg","thumb":"assets/p/p009_s.jpg"}],"sku":"TT-006"},{"id":"r14","row":14,"cat":"手镯手环手串","name":"景震剑手镯（女款）","price_raw":"2588","price":2588.0,"price_text":"US$2,588","note":"","images":[{"full":"assets/p/p015.jpg","thumb":"assets/p/p015_s.jpg"}],"sku":"TT-012"},{"id":"r13","row":13,"cat":"手镯手环手串","name":"景震剑手镯（男款）","price_raw":"2588","price":2588.0,"price_text":"US$2,588","note":"","images":[{"full":"assets/p/p014.jpg","thumb":"assets/p/p014_s.jpg"}],"sku":"TT-011"}]},{"name":"私人定制","count":4,"low":299.0,"items":[{"id":"r48","row":48,"cat":"私人定制","name":"手机背卡","price_raw":"299","price":299.0,"price_text":"US$299","note":"","images":[{"full":"assets/p/p088.jpg","thumb":"assets/p/p088_s.jpg"},{"full":"assets/p/p089.jpg","thumb":"assets/p/p089_s.jpg"},{"full":"assets/p/p090.jpg","thumb":"assets/p/p090_s.jpg"},{"full":"assets/p/p091.jpg","thumb":"assets/p/p091_s.jpg"}],"sku":"TT-046"},{"id":"r37","row":37,"cat":"私人定制","name":"朱砂配饰","price_raw":"888","price":888.0,"price_text":"US$888","note":"","images":[{"full":"assets/p/p060.jpg","thumb":"assets/p/p060_s.jpg"},{"full":"assets/p/p061.jpg","thumb":"assets/p/p061_s.jpg"},{"full":"assets/p/p062.jpg","thumb":"assets/p/p062_s.jpg"},{"full":"assets/p/p063.jpg","thumb":"assets/p/p063_s.jpg"},{"full":"assets/p/p064.jpg","thumb":"assets/p/p064_s.jpg"},{"full":"assets/p/p065.jpg","thumb":"assets/p/p065_s.jpg"},{"full":"assets/p/p066.jpg","thumb":"assets/p/p066_s.jpg"},{"full":"assets/p/p067.jpg","thumb":"assets/p/p067_s.jpg"}],"sku":"TT-035"},{"id":"r35","row":35,"cat":"私人定制","name":"水晶手串","price_raw":"999-2999","price":999.0,"price_text":"US$999–2,999","note":"","images":[{"full":"assets/p/p053.jpg","thumb":"assets/p/p053_s.jpg"},{"full":"assets/p/p054.jpg","thumb":"assets/p/p054_s.jpg"}],"sku":"TT-033"},{"id":"r49","row":49,"cat":"私人定制","name":"儿童配饰","price_raw":"后台咨询","price":null,"price_text":"價格面議","note":"樣式與尺寸依需求訂製，實物照片補拍後更新。","images":[],"sku":"TT-047"}]},{"name":"能量玉牌","count":3,"low":330.0,"items":[{"id":"r4","row":4,"cat":"能量玉牌","name":"朱砂白玉吉祥坠","price_raw":"330","price":330.0,"price_text":"US$330","note":"","images":[{"full":"assets/p/p003.jpg","thumb":"assets/p/p003_s.jpg"},{"full":"assets/p/p004.jpg","thumb":"assets/p/p004_s.jpg"}],"sku":"TT-002"},{"id":"r3","row":3,"cat":"能量玉牌","name":"朱砂白玉平安坠","price_raw":"330","price":330.0,"price_text":"US$330","note":"","images":[{"full":"assets/p/p001.jpg","thumb":"assets/p/p001_s.jpg"},{"full":"assets/p/p002.jpg","thumb":"assets/p/p002_s.jpg"}],"sku":"TT-001"},{"id":"r5","row":5,"cat":"能量玉牌","name":"朱砂白玉无忧坠","price_raw":"330","price":330.0,"price_text":"US$330","note":"","images":[{"full":"assets/p/p005.jpg","thumb":"assets/p/p005_s.jpg"},{"full":"assets/p/p006.jpg","thumb":"assets/p/p006_s.jpg"}],"sku":"TT-003"}]},{"name":"配饰","count":13,"low":330.0,"items":[{"id":"r6","row":6,"cat":"配饰","name":"朱砂雷霆祈愿顺遂挂饰","price_raw":"330","price":330.0,"price_text":"US$330","note":"","images":[{"full":"assets/p/p007.jpg","thumb":"assets/p/p007_s.jpg"}],"sku":"TT-004"},{"id":"r7","row":7,"cat":"配饰","name":"枣木吉祥把玩挂饰","price_raw":"330","price":330.0,"price_text":"US$330","note":"","images":[{"full":"assets/p/p008.jpg","thumb":"assets/p/p008_s.jpg"}],"sku":"TT-005"},{"id":"r16","row":16,"cat":"配饰","name":"手绘招财挂坠","price_raw":"333","price":333.0,"price_text":"US$333","note":"","images":[{"full":"assets/p/p017.jpg","thumb":"assets/p/p017_s.jpg"},{"full":"assets/p/p018.jpg","thumb":"assets/p/p018_s.jpg"}],"sku":"TT-014"},{"id":"r43","row":43,"cat":"配饰","name":"和田玉平安扣","price_raw":"399","price":399.0,"price_text":"US$399","note":"","images":[{"full":"assets/p/p078.jpg","thumb":"assets/p/p078_s.jpg"},{"full":"assets/p/p079.jpg","thumb":"assets/p/p079_s.jpg"}],"sku":"TT-041"},{"id":"r47","row":47,"cat":"配饰","name":"朱砂儿童配饰","price_raw":"399","price":399.0,"price_text":"US$399","note":"","images":[{"full":"assets/p/p086.jpg","thumb":"assets/p/p086_s.jpg"},{"full":"assets/p/p087.jpg","thumb":"assets/p/p087_s.jpg"}],"sku":"TT-045"},{"id":"r33","row":33,"cat":"配饰","name":"九尾狐姻缘挂坠","price_raw":"655","price":655.0,"price_text":"US$655","note":"","images":[{"full":"assets/p/p049.jpg","thumb":"assets/p/p049_s.jpg"},{"full":"assets/p/p050.jpg","thumb":"assets/p/p050_s.jpg"}],"sku":"TT-031"},{"id":"r29","row":29,"cat":"配饰","name":"护身招财戒","price_raw":"655","price":655.0,"price_text":"US$655","note":"","images":[{"full":"assets/p/p042.jpg","thumb":"assets/p/p042_s.jpg"},{"full":"assets/p/p043.jpg","thumb":"assets/p/p043_s.jpg"}],"sku":"TT-027"},{"id":"r25","row":25,"cat":"配饰","name":"偏财挂坠","price_raw":"666","price":666.0,"price_text":"US$666","note":"","images":[{"full":"assets/p/p035.jpg","thumb":"assets/p/p035_s.jpg"}],"sku":"TT-023"},{"id":"r44","row":44,"cat":"配饰","name":"如意锁脖挂","price_raw":"666","price":666.0,"price_text":"US$666","note":"","images":[{"full":"assets/p/p080.jpg","thumb":"assets/p/p080_s.jpg"},{"full":"assets/p/p081.jpg","thumb":"assets/p/p081_s.jpg"}],"sku":"TT-042"},{"id":"r45","row":45,"cat":"配饰","name":"粉水晶水滴耳坠","price_raw":"666","price":666.0,"price_text":"US$666","note":"","images":[{"full":"assets/p/p082.jpg","thumb":"assets/p/p082_s.jpg"},{"full":"assets/p/p083.jpg","thumb":"assets/p/p083_s.jpg"}],"sku":"TT-043"},{"id":"r46","row":46,"cat":"配饰","name":"粉水晶脖挂","price_raw":"666","price":666.0,"price_text":"US$666","note":"","images":[{"full":"assets/p/p084.jpg","thumb":"assets/p/p084_s.jpg"},{"full":"assets/p/p085.jpg","thumb":"assets/p/p085_s.jpg"}],"sku":"TT-044"},{"id":"r30","row":30,"cat":"配饰","name":"手绘描金财神吊坠","price_raw":"699","price":699.0,"price_text":"US$699","note":"","images":[{"full":"assets/p/p044.jpg","thumb":"assets/p/p044_s.jpg"}],"sku":"TT-028"},{"id":"r34","row":34,"cat":"配饰","name":"文昌塔吊坠-学业顺遂","price_raw":"699","price":699.0,"price_text":"US$699","note":"","images":[{"full":"assets/p/p051.jpg","thumb":"assets/p/p051_s.jpg"},{"full":"assets/p/p052.jpg","thumb":"assets/p/p052_s.jpg"}],"sku":"TT-032"}]},{"name":"摆件","count":5,"low":399.0,"items":[{"id":"r41","row":41,"cat":"摆件","name":"玉化雷击枣木葫芦","price_raw":"399","price":399.0,"price_text":"US$399","note":"","images":[{"full":"assets/p/p074.jpg","thumb":"assets/p/p074_s.jpg"},{"full":"assets/p/p075.jpg","thumb":"assets/p/p075_s.jpg"}],"sku":"TT-039"},{"id":"r15","row":15,"cat":"摆件","name":"手作編號茶杯","price_raw":"788","price":788.0,"price_text":"US$788","note":"杯身直径约90mm · 杯高约为5mm · 每一个杯子都有标号，独一无二","images":[{"full":"assets/p/p016.jpg","thumb":"assets/p/p016_s.jpg"}],"sku":"TT-013"},{"id":"r17","row":17,"cat":"摆件","name":"道长手绘","price_raw":"788","price":788.0,"price_text":"US$788","note":"","images":[{"full":"assets/p/p019.jpg","thumb":"assets/p/p019_s.jpg"},{"full":"assets/p/p020.jpg","thumb":"assets/p/p020_s.jpg"}],"sku":"TT-015"},{"id":"r19","row":19,"cat":"摆件","name":"挂轴","price_raw":"888","price":888.0,"price_text":"US$888","note":"","images":[{"full":"assets/p/p023.jpg","thumb":"assets/p/p023_s.jpg"},{"full":"assets/p/p024.jpg","thumb":"assets/p/p024_s.jpg"}],"sku":"TT-017"},{"id":"r20","row":20,"cat":"摆件","name":"镇宅摆件","price_raw":"999","price":999.0,"price_text":"US$999","note":"","images":[{"full":"assets/p/p025.jpg","thumb":"assets/p/p025_s.jpg"},{"full":"assets/p/p026.jpg","thumb":"assets/p/p026_s.jpg"}],"sku":"TT-018"}]},{"name":"水晶球","count":4,"low":1788.0,"items":[{"id":"r9","row":9,"cat":"水晶球","name":"红碧玉纳吉旺运吉祥摆件","price_raw":"1788","price":1788.0,"price_text":"US$1,788","note":"","images":[{"full":"assets/p/p010.jpg","thumb":"assets/p/p010_s.jpg"}],"sku":"TT-007"},{"id":"r11","row":11,"cat":"水晶球","name":"绿萤石旺宅顺遂摆件","price_raw":"1788","price":1788.0,"price_text":"US$1,788","note":"","images":[{"full":"assets/p/p012.jpg","thumb":"assets/p/p012_s.jpg"}],"sku":"TT-009"},{"id":"r12","row":12,"cat":"水晶球","name":"黄水晶开运聚财摆件","price_raw":"1788","price":1788.0,"price_text":"US$1,788","note":"","images":[{"full":"assets/p/p013.jpg","thumb":"assets/p/p013_s.jpg"}],"sku":"TT-010"},{"id":"r10","row":10,"cat":"水晶球","name":"黑曜石镇宅摆件","price_raw":"1788","price":1788.0,"price_text":"US$1,788","note":"","images":[{"full":"assets/p/p011.jpg","thumb":"assets/p/p011_s.jpg"}],"sku":"TT-008"}]}],"services":[{"cat":"事物咨询","desc":"大小事务，一事一问","price":60.0,"price_text":"US$60","price_raw":"60","sku":"TS-01"},{"cat":"基础命理","desc":"常规命理报告，终身命运基础预测","price":235.0,"price_text":"US$235","price_raw":"235","sku":"TS-02"},{"cat":"宅院看询","desc":"身前事后预测调理","price":399.0,"price_text":"US$399 起","price_raw":"399起","sku":"TS-03"},{"cat":"全面命理","desc":"全面命理报告，终身命运基础预测","price":599.0,"price_text":"US$599","price_raw":"599","sku":"TS-04"},{"cat":"终身预测","desc":"终身命运预测+奇门总体规划","price":999.0,"price_text":"US$999","price_raw":"999","sku":"TS-05"},{"cat":"通话咨询","desc":"奇门遁甲、塔罗占卜","price":999.0,"price_text":"US$999 / 小時","price_raw":"999/h","sku":"TS-06"},{"cat":"私人定制","desc":"全方位全面报告+通话","price":2200.0,"price_text":"US$2,200","price_raw":"2200","sku":"TS-07"}],"contacts":[{"type":"whatsapp","label":"WhatsApp","value":"+86 153 1442 5232","sub":"名稱 TongtaiWENHUA","link":"https://wa.me/8615314425232","copy":"+8615314425232"},{"type":"line","label":"LINE","value":"+86 153 1442 5232","sub":"以電話號碼搜尋加入好友","link":"","copy":"+8615314425232"},{"type":"wechat","label":"微信 WeChat","value":"Tongtai-wenhua","sub":"用戶名 TongtaiCC","link":"","copy":"Tongtai-wenhua"},{"type":"email","label":"電郵 Email","value":"zengyaold1989@gmail.com","sub":"回覆約 1 個工作日","link":"mailto:zengyaold1989@gmail.com","copy":"zengyaold1989@gmail.com"}],"payments":[{"name":"PayPal","desc":"依該筆交易的金額與品項編號生成一次性付款連結，效期 24 小時；買方可用信用卡或 PayPal 餘額支付，無需註冊。","link":""},{"name":"銀行轉帳 / 電匯","desc":"台灣、香港、東南亞客戶可選本地轉帳或電匯，確認訂單後提供收款帳戶資料。","link":""},{"name":"微信 / 支付寶","desc":"中國大陸客戶可用，確認訂單後提供收款碼。","link":""}]};
 /*CATALOG_END*/
@@ -380,6 +389,29 @@ window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"
   "use strict";
   var ORIGIN = JSON.parse(JSON.stringify(window.__CATALOG__));
   var CFG = window.__SITE__ || {};
+
+  /* ---- 全站文案（可在管理頁修改） ---- */
+  var SITEKEY = "tongtai_site_v1";
+  var TEXTS = {};
+  (function () {
+    try {
+      var d = JSON.parse(JSON.stringify(window.__SITE__ || {}));
+      Object.keys(d).forEach(function (k) { TEXTS[k] = d[k]; });
+      var saved = localStorage.getItem(SITEKEY);
+      if (saved) {
+        var s2 = JSON.parse(saved);
+        Object.keys(s2).forEach(function (k) { TEXTS[k] = s2[k]; });
+      }
+    } catch (e) {}
+  })();
+
+  function applyTexts() {
+    $$("[data-tx]").forEach(function (el) {
+      var k = el.getAttribute("data-tx"), v = TEXTS[k];
+      if (typeof v !== "string") return;
+      if (el.getAttribute("data-multi") === "1") el.innerHTML = v; else el.textContent = v;
+    });
+  }
   var data = JSON.parse(JSON.stringify(ORIGIN));
   var LS = "tongtai_catalog_v1";
   try {
@@ -590,7 +622,7 @@ window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"
     }
   });
 
-  function renderAll() { renderCats(); renderSvc(); renderPay(); renderContacts(); }
+  function renderAll() { applyTexts(); renderCats(); renderSvc(); renderPay(); renderContacts(); }
   renderAll();
 
   /* ============ 管理：WebAuthn（Windows Hello） ============ */
@@ -679,9 +711,29 @@ window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"
     t.addEventListener("click", function () {
       $$(".tab").forEach(function (x) { x.classList.remove("on"); });
       t.classList.add("on");
-      ["p", "s", "c", "y"].forEach(function (k) { $("#sec" + k.toUpperCase()).classList.toggle("on", k === t.getAttribute("data-tab")); });
+      ["p", "s", "c", "y", "t"].forEach(function (k) { $("#sec" + k.toUpperCase()).classList.toggle("on", k === t.getAttribute("data-tab")); });
     });
   });
+
+  var TEXT_META = [
+    ["hero.tag", "首頁眉標", 0],
+    ["hero.title", "首頁大標", 2],
+    ["hero.sub", "首頁說明", 1],
+    ["obj.title", "器物區標題", 0],
+    ["obj.note", "器物區副標", 0],
+    ["svc.title", "服務區標題", 0],
+    ["svc.note", "服務區副標", 0],
+    ["pay.title", "付款區標題", 0],
+    ["pay.note", "付款區副標", 0],
+    ["step1.t", "流程一 標題", 0], ["step1.d", "流程一 說明", 1],
+    ["step2.t", "流程二 標題", 0], ["step2.d", "流程二 說明", 1],
+    ["step3.t", "流程三 標題", 0], ["step3.d", "流程三 說明", 1],
+    ["band.t", "付款提示 標題", 0], ["band.d", "付款提示 說明", 1],
+    ["ct.title", "聯絡區標題", 0],
+    ["ct.note", "聯絡區副標", 0],
+    ["dt.ask.t", "詳情頁提示 標題", 0], ["dt.ask.d", "詳情頁提示 說明", 1],
+    ["foot.brand", "頁尾品牌", 0]
+  ];
 
   /* ---- 管理表单 ---- */
   function buildAdmin() {
@@ -694,11 +746,14 @@ window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"
           '</div><div class="row-line">' +
           '<div class="f"><label>顯示價文字</label><input data-p="' + ci + '" data-i="' + pi + '" data-k="price_text" value="' + esc(p.price_text) + '"></div>' +
           '<div class="f"><label>說明</label><input data-p="' + ci + '" data-i="' + pi + '" data-k="note" value="' + esc(p.note || "") + '"></div>' +
-          '</div><div class="row-acts"><span style="font-size:11px;color:var(--dim-2)">圖片 ' + (p.images ? p.images.length : 0) + ' 張</span>' +
-          '<button class="del" data-delimg="' + ci + '|' + pi + '">刪除首圖</button>' +
+          '</div><div class="row-acts" style="flex-wrap:wrap;gap:6px;margin-top:8px">' + (p.images || []).map(function (im, ii) {
+            return '<span class="adm-th-wrap"><img class="adm-th" src="' + esc(im.thumb || im.full) + '"><button class="adm-th-x" data-rmimg="' + ci + '|' + pi + '|' + ii + '">×</button></span>';
+          }).join("") + '</div><div class="row-acts">' +
+          '<span style="font-size:11px;color:var(--dim-2)">圖片 ' + (p.images ? p.images.length : 0) + ' 張</span>' +
+          '<button class="mini" data-upimg="' + ci + '|' + pi + '">上傳／替換圖片</button>' +
           '<button class="del" data-delprod="' + ci + '|' + pi + '">刪除此商品</button></div></div>';
       }).join("");
-      return '<div style="margin-bottom:18px"><div class="row-acts" style="margin-bottom:8px"><b style="font-size:13px;font-family:var(--serif)">' + esc(c.name) + '</b><span style="font-size:11px;color:var(--dim-2)">' + c.items.length + ' 件</span></div>' + items + '</div>';
+      return '<div style="margin-bottom:18px"><div class="row-acts" style="margin-bottom:8px"><input data-catname="' + ci + '" value="' + esc(c.name) + '" style="font-size:13px;font-family:var(--serif);flex:1;min-width:120px"><span style="font-size:11px;color:var(--dim-2)">' + c.items.length + ' 件</span></div>' + items + '</div>';
     }).join("");
     $("#secP").innerHTML = catsHtml + '<button class="add" id="addProd">＋ 新增商品（歸入新類目）</button>';
 
@@ -729,7 +784,69 @@ window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"
         '<div class="row-acts"><button class="del" data-dely="' + i + '">刪除</button></div></div>';
     }).join("") + '<button class="add" id="addPay">＋ 新增支付方式</button>';
 
+    /* 文案 */
+    $("#secT").innerHTML = TEXT_META.map(function (m) {
+      var v = TEXTS[m[0]];
+      if (typeof v !== "string") { var el = $('[data-tx="' + m[0] + '"]'); v = el ? (el.getAttribute("data-multi") === "1" ? el.innerHTML : el.textContent) : ""; }
+      return '<div class="f"><label>' + esc(m[1]) + (m[2] === 2 ? '（可留 &lt;br&gt; 換行）' : '') + '</label>' +
+        (m[1].length > 8 || m[2] >= 1 ? '<textarea data-t="' + m[0] + '" rows="2">' + esc(v) + '</textarea>'
+          : '<input data-t="' + m[0] + '" value="' + esc(v) + '">') + '</div>';
+    }).join("");
+
     bindAdmin();
+  }
+
+  var pickTarget = null;
+  var pickInput = null;
+  function pickImages(target) {
+    pickTarget = target;
+    if (!pickInput) {
+      pickInput = document.createElement("input");
+      pickInput.type = "file";
+      pickInput.accept = "image/*";
+      pickInput.multiple = true;
+      pickInput.style.display = "none";
+      pickInput.addEventListener("change", onPicked);
+      document.body.appendChild(pickInput);
+    }
+    pickInput.value = "";
+    pickInput.click();
+  }
+  function shrink(file, maxW, q) {
+    return new Promise(function (res) {
+      var fr = new FileReader();
+      fr.onload = function () {
+        var img = new Image();
+        img.onload = function () {
+          var s0 = Math.min(1, maxW / (img.width || maxW));
+          var w = Math.round(img.width * s0), h = Math.round(img.height * s0);
+          var c = document.createElement("canvas");
+          c.width = w; c.height = h;
+          c.getContext("2d").drawImage(img, 0, 0, w, h);
+          res(c.toDataURL("image/jpeg", q));
+        };
+        img.onerror = function () { res(null); };
+        img.src = fr.result;
+      };
+      fr.onerror = function () { res(null); };
+      fr.readAsDataURL(file);
+    });
+  }
+  function onPicked(ev) {
+    var files = Array.prototype.slice.call(ev.target.files || []);
+    if (!files.length || !pickTarget) return;
+    var a = pickTarget.split("|");
+    var p = data.categories[+a[0]].items[+a[1]];
+    toast("正在處理圖片…");
+    Promise.all(files.map(function (f) {
+      return Promise.all([shrink(f, 1100, 0.82), shrink(f, 420, 0.72)]).then(function (r) {
+        return r[0] ? { full: r[0], thumb: r[1] || r[0] } : null;
+      });
+    })).then(function (list) {
+      list.forEach(function (im) { if (im) p.images.push(im); });
+      buildAdmin();
+      toast("已加入 " + list.filter(Boolean).length + " 張，記得按「套用到頁面」");
+    });
   }
 
   function bindAdmin() {
@@ -750,6 +867,27 @@ window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"
           data.payments[+inp.getAttribute("data-y")][inp.getAttribute("data-k")] = v;
         }
       });
+    });
+    $$("[data-t]").forEach(function (inp) {
+      inp.addEventListener("input", function () { TEXTS[inp.getAttribute("data-t")] = inp.value; });
+    });
+    $$("[data-catname]").forEach(function (inp) {
+      inp.addEventListener("input", function () {
+        var c = data.categories[+inp.getAttribute("data-catname")];
+        c.name = inp.value;
+        (c.items || []).forEach(function (p) { p.cat = inp.value; });
+      });
+    });
+    $$("[data-rmimg]").forEach(function (b) {
+      b.onclick = function () {
+        var a = b.getAttribute("data-rmimg").split("|");
+        data.categories[+a[0]].items[+a[1]].images.splice(+a[2], 1); buildAdmin();
+      };
+    });
+    $$("[data-upimg]").forEach(function (b) {
+      b.onclick = function () {
+        pickImages(b.getAttribute("data-upimg"));
+      };
     });
     $$("[data-delprod]").forEach(function (b) { b.onclick = function () {
       var a = b.getAttribute("data-delprod").split("|");
@@ -792,14 +930,16 @@ window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"
 
   $("#admApply").onclick = function () {
     try { localStorage.setItem(LS, JSON.stringify(data)); } catch (e) {}
+    try { localStorage.setItem(SITEKEY, JSON.stringify(TEXTS)); } catch (e) {}
     renderAll(); toast("已套用到頁面（本機預覽）");
   };
   $("#admReset").onclick = function () {
     data = JSON.parse(JSON.stringify(ORIGIN));
-    try { localStorage.removeItem(LS); } catch (e) {}
+    try { localStorage.removeItem(LS); localStorage.removeItem(SITEKEY); } catch (e) {}
+    TEXTS = {};
     renderAll(); buildAdmin(); toast("已還原為原始內容");
   };
-  $("#admJson").onclick = function () { download("catalog.json", JSON.stringify(data, null, 1), "application/json"); };
+  $("#admJson").onclick = function () { download("catalog.json", JSON.stringify({ catalog: data, texts: TEXTS }, null, 1), "application/json"); };
 
   $("#admExport").onclick = function () {
     var btn = this; btn.textContent = "產生中…";
@@ -808,6 +948,11 @@ window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"
       if (a < 0 || b < 0) throw new Error("找不到資料區塊");
       var block = "/*CATALOG_START*/\nwindow.__CATALOG__ = " + JSON.stringify(data) + ";\n/*CATALOG_END*/";
       var out = src.slice(0, a) + block + src.slice(b + "/*CATALOG_END*/".length);
+      var sa = out.indexOf("/*SITE_START*/"), sb2 = out.indexOf("/*SITE_END*/");
+      if (sa >= 0 && sb2 >= 0) {
+        var sblock = "/*SITE_START*/\nwindow.__SITE__ = " + JSON.stringify(TEXTS) + ";\n/*SITE_END*/";
+        out = out.slice(0, sa) + sblock + out.slice(sb2 + "/*SITE_END*/".length);
+      }
       download("通泰文化商城.html", out, "text/html");
       btn.textContent = "匯出頁面";
       toast("已下載新頁面，交回即可上線");
