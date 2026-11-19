@@ -332,8 +332,7 @@ p{margin:0}
 <section class="cols-sec">
   <div class="wrap">
     <div class="cols-hd">
-      <h2 data-tx="cols.title" data-en="Shop by Collection">依類目選</h2>
-      <div class="note" data-tx="cols.note" data-en="Eight categories, each cut by what the object is for">八個類目，每一類都由器物本身的用途分出來</div>
+      <h2 data-tx="cols.title" data-en="Collections">類目</h2>
     </div>
     <div class="cols" id="cols"></div>
   </div>
@@ -546,9 +545,14 @@ window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"
       var nums = c.items.map(function (x) { return x.price; }).filter(function (x) { return x != null; });
       c.low = nums.length ? Math.min.apply(null, nums) : 9e9;
     });
-    cats.sort(function (a, b) { return (a.low || 9e9) - (b.low || 9e9); });
+    var ORDER = ["水晶球", "能量玉牌", "手镯手环手串", "摆件", "挂饰", "配饰", "手机壁纸", "私人定制"];
+    cats.sort(function (a, b) {
+      var ia = ORDER.indexOf(a.name), ib = ORDER.indexOf(b.name);
+      if (ia < 0) ia = 99; if (ib < 0) ib = 99;
+      return ia - ib;
+    });
     var total = cats.reduce(function (n, c) { return n + c.items.length; }, 0);
-    $("#objCount").textContent = cats.length + " 個類目 · " + total + " 件";
+    $("#objCount").textContent = cats.length + " 個類目";
     var html = "";
     cats.forEach(function (c, ci) {
       var first = c.items[0];
@@ -581,7 +585,7 @@ window.__CATALOG__ = {"categories":[{"name":"手机壁纸","count":1,"low":3.0,"
         var img = f && f.images && f.images[0] ? '<img src="' + esc(f.images[0].thumb) + '" alt="' + esc(c.name) + '" loading="lazy">' : phBox();
         return '<div class="col" data-goto="cat-' + ci + '">' + img +
           '<div class="col-lb"><div class="col-n">' + esc(c.name) + (c.name_en ? '<span class="nm-en" style="color:#e2d9ca">' + esc(c.name_en) + '</span>' : '') + '</div>' +
-          '<div class="col-m">' + c.items.length + ' 件 · 自 ' + esc(f ? f.price_text : "面議") + ' 起</div></div></div>';
+          '<div class="col-m">' + (f && f.price != null ? '自 ' + esc(f.price_text) + ' 起' : '面議') + '</div></div></div>';
       }).join("");
     }
   }
