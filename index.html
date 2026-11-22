@@ -642,6 +642,10 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
     if (LANG.mode === "en" && /起\s*$/.test(t)) return "from " + t.replace(/\s*起\s*$/, "");
     return t;
   }
+  function cheapestText(c) {
+    var p = (c.items || []).filter(function (x) { return x.price != null; }).sort(function (a, b) { return a.price - b.price; })[0];
+    return p ? p.price_text : "";
+  }
   var ORIG_TX = {}, ORIG_UI = {}, snapped = false;
   var EN_SPANS = ".tx-en,.nm-en,.hero-en,.hero-sub-en,.btn-en,.step-en,.band-en,.svc-en,.pay-en,.ct-k-en,.ct-sub-en,.fact-en,.svc-desc-en,.dt-note-en,.foot-en";
   function primaryText(el) {
@@ -759,7 +763,7 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
         var img = f && f.images && f.images[0] ? '<img src="' + esc(f.images[0].thumb) + '" alt="' + esc(dnCat(c)) + '" loading="lazy">' : phBox();
         return '<div class="col" data-goto="cat-' + ci + '">' + img +
           '<div class="col-lb"><div class="col-n">' + esc(dnCat(c)) + (c.name_en ? '<span class="nm-en" style="color:#e2d9ca">' + esc(c.name_en) + '</span>' : '') + '</div>' +
-          '<div class="col-m">' + (f && f.price != null ? (LANG.mode === "en" ? "from " + esc(f.price_text) : esc(f.price_text) + " 起") : priceWord()) + '</div></div></div>';
+          '<div class="col-m">' + (cheapestText(c) ? (LANG.mode === "en" ? "from " + esc(cheapestText(c)) : esc(cheapestText(c)) + " 起") : priceWord()) + '</div></div></div>';
       }).join("");
     }
   }
@@ -884,7 +888,7 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
       var g = $("#grid" + more.getAttribute("data-more"));
       var on = g.style.display !== "none";
       g.style.display = on ? "none" : "grid";
-      more.textContent = moreText(on);
+      more.textContent = moreText(!on);
       if (!on) g.scrollIntoView({ block: "nearest", behavior: "smooth" });
       return;
     }
