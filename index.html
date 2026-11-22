@@ -46,6 +46,7 @@ p{margin:0}
 .ct-sub-en{display:block;font-family:var(--en);font-size:10.5px;color:var(--dim-2);margin-top:3px}
 .svc-en{font-family:var(--en);font-size:10.5px;color:var(--dim-2);margin:2px 0 4px}
 .svc-desc-en{display:block;font-family:var(--en);font-size:11px;color:var(--dim);line-height:1.65;margin-top:3px}
+.mis-d-en,.step-d-en,.pay-desc-en{display:block;font-family:var(--en);font-size:11px;color:var(--dim);line-height:1.65;margin-top:3px}
 .pay-en{display:block;font-family:var(--en);font-size:10.5px;color:var(--dim-2);margin-top:4px}
 .dt-note-en{font-family:var(--en);font-size:11.5px;color:var(--dim);line-height:1.8;margin-top:6px}
 .foot-en{font-family:var(--en);font-size:10px;color:var(--dim-2)}
@@ -84,7 +85,7 @@ p{margin:0}
 .lang-switch button:hover:not(.on){color:var(--ink)}
 .hd-right{display:flex;align-items:center;gap:12px}
 @media(max-width:819px){.lang-switch button{padding:5px 7px;font-size:11px}.hd-right{gap:8px}}
-body:not([data-lang="mix"]) .tx-en,body:not([data-lang="mix"]) .nm-en,body:not([data-lang="mix"]) .hero-en,body:not([data-lang="mix"]) .hero-sub-en,body:not([data-lang="mix"]) .btn-en,body:not([data-lang="mix"]) .step-en,body:not([data-lang="mix"]) .band-en,body:not([data-lang="mix"]) .svc-en,body:not([data-lang="mix"]) .pay-en,body:not([data-lang="mix"]) .ct-k-en,body:not([data-lang="mix"]) .ct-sub-en,body:not([data-lang="mix"]) .fact-en,body:not([data-lang="mix"]) .svc-desc-en,body:not([data-lang="mix"]) .dt-note-en,body:not([data-lang="mix"]) .foot-en{display:none!important}
+body:not([data-lang="mix"]) .tx-en,body:not([data-lang="mix"]) .nm-en,body:not([data-lang="mix"]) .hero-en,body:not([data-lang="mix"]) .hero-sub-en,body:not([data-lang="mix"]) .btn-en,body:not([data-lang="mix"]) .step-en,body:not([data-lang="mix"]) .band-en,body:not([data-lang="mix"]) .svc-en,body:not([data-lang="mix"]) .pay-en,body:not([data-lang="mix"]) .ct-k-en,body:not([data-lang="mix"]) .ct-sub-en,body:not([data-lang="mix"]) .fact-en,body:not([data-lang="mix"]) .svc-desc-en,body:not([data-lang="mix"]) .dt-note-en,body:not([data-lang="mix"]) .foot-en,body:not([data-lang="mix"]) .mis-d-en,body:not([data-lang="mix"]) .step-d-en,body:not([data-lang="mix"]) .pay-desc-en{display:none!important}
 
 /* ---------- hero（满幅大图） ---------- */
 .hero{position:relative;overflow:hidden;min-height:clamp(420px,58vh,680px);display:flex;align-items:flex-end}
@@ -378,9 +379,9 @@ body:not([data-lang="mix"]) .tx-en,body:not([data-lang="mix"]) .nm-en,body:not([
   <div class="wrap">
     <div class="sec-hd"><h2 data-tx="mis.title" data-en="How We Work">我們的做法</h2><div class="sec-note" data-tx="mis.note" data-en="Energy as the lead, return-to-source balancing as the method, objects as support">能量為引，歸元納氣調理為方法，器物為輔助</div></div>
     <div class="mis">
-      <div class="mis-i"><h3 data-tx="m1.t" data-en="Lineage">傳承</h3><p data-tx="m1.d">奇門遁甲命理推算、器物的適當用法，是沿著體系代代傳下來的。每一件的用法、說法都有不同，沒有臨時編撰的故事。</p></div>
-      <div class="mis-i"><h3 data-tx="m2.t" data-en="Judgement">判斷</h3><p data-tx="m2.d">先看你的問題，再給予專業的解答與指導。不合適的會直接說不合適，不硬推；服務隨緣，不強求。</p></div>
-      <div class="mis-i"><h3 data-tx="m3.t" data-en="Craft">品質</h3><p data-tx="m3.d">照片是實物拍攝，尺寸、材質、庫存與運費在下單前說明清楚，付款連結按單生成。</p></div>
+      <div class="mis-i"><h3 data-tx="m1.t" data-en="Lineage">傳承</h3><p data-tx="m1.d">奇門遁甲命理推算、器物的適當用法，是沿著體系代代傳下來的。每一件的用法、說法都有不同，沒有臨時編撰的故事。<span class="mis-d-en">The reading methods and how objects are used are passed down within one lineage. Each piece has its own basis; there are no made-up stories.</span></p></div>
+      <div class="mis-i"><h3 data-tx="m2.t" data-en="Judgement">判斷</h3><p data-tx="m2.d">先看你的問題，再給予專業的解答與指導。不合適的會直接說不合適，不硬推；服務隨緣，不強求。<span class="mis-d-en">We look at your question first, then advise. If something isn't right for you, we say so plainly; we don't push. Readings are offered freely, never pressured.</span></p></div>
+      <div class="mis-i"><h3 data-tx="m3.t" data-en="Craft">品質</h3><p data-tx="m3.d">照片是實物拍攝，尺寸、材質、庫存與運費在下單前說明清楚，付款連結按單生成。<span class="mis-d-en">Photos are of the actual item. Size, material, stock and shipping are clarified before order; the payment link is generated per transaction.</span></p></div>
     </div>
   </div>
 </section>
@@ -389,9 +390,9 @@ body:not([data-lang="mix"]) .tx-en,body:not([data-lang="mix"]) .nm-en,body:not([
   <div class="wrap">
     <div class="sec-hd"><h2 data-tx="pay.title" data-en="Payment and Shipping">付款與運送</h2><div class="sec-note" data-tx="pay.note">本店僅透過頁面所列官方渠道聯繫與收款；付款連結均為確認品項後一對一發出，24 小時有效。如收到來路不明的付款連結，請先透過官方渠道核實，勿直接付款。</div></div>
     <div class="steps">
-      <div class="step"><i>01</i><b data-tx="step1.t">選定品項</b><span class="step-en">Choose the item</span><span data-tx="step1.d">記下器物或服務的編號（TT-／TS-），連同數量一起告訴我們。</span></div>
-      <div class="step"><i>02</i><b data-tx="step2.t">確認報價</b><span class="step-en">Confirm the quote</span><span data-tx="step2.d">我們核對庫存、尺寸、配送方式與運費，回覆最終金額（美元）。</span></div>
-      <div class="step"><i>03</i><b data-tx="step3.t">生成連結</b><span class="step-en">Generate the link</span><span data-tx="step3.d">依該筆金額與編號生成一次性 PayPal 付款連結，效期 24 小時。</span></div>
+      <div class="step"><i>01</i><b data-tx="step1.t">選定品項</b><span class="step-en">Choose the item</span><span data-tx="step1.d">記下器物或服務的編號（TT-／TS-），連同數量一起告訴我們。<span class="step-d-en">Note the item or service code (TT-/TS-) and tell us the quantity.</span></span></div>
+      <div class="step"><i>02</i><b data-tx="step2.t">確認報價</b><span class="step-en">Confirm the quote</span><span data-tx="step2.d">我們核對庫存、尺寸、配送方式與運費，回覆最終金額（美元）。<span class="step-d-en">We confirm stock, size, delivery method and shipping, then reply with the final amount in USD.</span></span></div>
+      <div class="step"><i>03</i><b data-tx="step3.t">生成連結</b><span class="step-en">Generate the link</span><span data-tx="step3.d">依該筆金額與編號生成一次性 PayPal 付款連結，效期 24 小時。<span class="step-d-en">A one-time PayPal payment link is generated for that amount and code, valid for 24 hours.</span></span></div>
     </div>
     <div class="pay-grid" id="payList"></div>
     <div class="consult-band">
@@ -648,7 +649,7 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
     return p ? p.price_text : "";
   }
   var ORIG_TX = {}, ORIG_UI = {}, snapped = false;
-  var EN_SPANS = ".tx-en,.nm-en,.hero-en,.hero-sub-en,.btn-en,.step-en,.band-en,.svc-en,.pay-en,.ct-k-en,.ct-sub-en,.fact-en,.svc-desc-en,.dt-note-en,.foot-en";
+  var EN_SPANS = ".tx-en,.nm-en,.hero-en,.hero-sub-en,.btn-en,.step-en,.band-en,.svc-en,.pay-en,.ct-k-en,.ct-sub-en,.fact-en,.svc-desc-en,.dt-note-en,.foot-en,.mis-d-en,.step-d-en,.pay-desc-en";
   function primaryText(el) {
     var c = el.cloneNode(true);
     c.querySelectorAll(EN_SPANS).forEach(function (x) { x.remove(); });
@@ -810,7 +811,9 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
       var head = isPP
         ? '<img class="pay-logo" src="' + PP_LOGO + '" alt="PayPal">' + (p.name_en ? '<div class="pay-en">' + esc(p.name_en) + '</div>' : '')
         : '<h4>' + esc(LANG.mode === "en" ? (p.name_en || p.name) : (LANG.mode === "zhcn" ? (p.name_simp || p.name) : p.name)) + (p.name_en ? '<span class="pay-en">' + esc(p.name_en) + '</span>' : '');
-      return '<div class="pay">' + head + '<p>' + esc(LANG.mode === "en" ? (p.desc_en || p.desc || "") : (LANG.mode === "zhcn" ? (p.desc_simp || p.desc || "") : (p.desc || ""))) + '</p>' +
+      var descMain = LANG.mode === "en" ? (p.desc_en || p.desc || "") : (LANG.mode === "zhcn" ? (p.desc_simp || p.desc || "") : (p.desc || ""));
+      var descEn = (LANG.mode === "mix" && p.desc_en) ? '<span class="pay-desc-en">' + esc(p.desc_en) + '</span>' : '';
+      return '<div class="pay">' + head + '<p>' + esc(descMain) + descEn + '</p>' +
         (p.link ? '<a class="pay-link" href="' + esc(p.link) + '" target="_blank" rel="noopener">' + esc(p.link.replace(/https?:\/\//, "")) + '</a>' : '<span class="badge" style="margin-top:10px">' + (LANG.mode === "en" ? "Link issued after confirmation" : (LANG.mode === "zhcn" ? "确认后生成链接" : "確認後生成連結")) + '</span>') + '</div>';
     }).join("");
   }
