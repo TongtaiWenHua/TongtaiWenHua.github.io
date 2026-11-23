@@ -100,6 +100,8 @@ body:not([data-lang="mix"]) .tx-en,body:not([data-lang="mix"]) .nm-en,body:not([
 .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4.6vw,52px);line-height:1.32;letter-spacing:.02em;max-width:17em;text-shadow:0 1px 18px rgba(0,0,0,.25)}
 .hero-sub{margin-top:18px;max-width:34em;color:#e6ddd0;font-size:14px}
 .acts{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:28px}
+.acts-link{font-size:13px;color:#e6ddd0;text-decoration:underline;word-break:break-all;line-height:1.4}
+.acts-link:hover{color:#fff}
 .btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:11px 24px;font-size:13.5px;line-height:1.25;border:1px solid rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.08);transition:.18s}
 .btn:hover{background:#fff;color:var(--paper);border-color:#fff}
 .btn-main{background:#fff;border-color:#fff;color:var(--paper)}
@@ -339,7 +341,7 @@ body:not([data-lang="mix"]) .tx-en,body:not([data-lang="mix"]) .nm-en,body:not([
     <div class="acts">
       <a class="btn btn-main" href="#objects"><span data-ui="hero.obj">看器物</span><i class="btn-en">Objects</i></a>
       <a class="btn" href="#services"><span data-ui="hero.svc">看服務</span><i class="btn-en">Services</i></a>
-      <a class="btn" href="https://line.me/ti/p/tSyLFAgmEE" target="_blank" rel="noopener"><span data-ui="hero.line">Line 諮詢</span><i class="btn-en">LINE</i></a>
+      <a class="acts-link" href="https://line.me/ti/p/tSyLFAgmEE" target="_blank" rel="noopener">Line：https://line.me/ti/p/tSyLFAgmEE</a>
     </div>
     <div class="facts">
       <div><div class="fact-k">DHL / FedEx<span class="fact-en">Tracked</span></div><div class="fact-v" data-ui="fact1v">國際快遞，附追蹤編號<span class="fact-en">International courier</span></div></div>
@@ -607,7 +609,7 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
   };
   var UI_EN = {
     "nav.objs": "Objects", "nav.svc": "Services", "nav.pay": "Payment", "nav.contact": "Contact",
-    "cta": "Enquire before ordering", "hero.obj": "Objects", "hero.svc": "Services", "hero.line": "LINE",
+    "cta": "Enquire before ordering", "hero.obj": "Objects", "hero.svc": "Services",
     "fact1v": "International courier, tracking provided", "fact2k": "48 hours", "fact2v": "Queue confirmed",
     "paybtn": "Payment", "badge": "Enquire before ordering", "svcCta": "Message to confirm",
     "open": "Open", "copy": "Copy", "wa": "WhatsApp", "ln": "LINE", "mail": "Email", "admin": "Admin",
@@ -616,7 +618,7 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
   };
   var UI_SIM = {
     "nav.objs": "器物", "nav.svc": "服务", "nav.pay": "付款", "nav.contact": "联络",
-    "cta": "咨询后下单", "hero.obj": "看器物", "hero.svc": "看服务", "hero.line": "LINE 咨询",
+    "cta": "咨询后下单", "hero.obj": "看器物", "hero.svc": "看服务",
     "fact1v": "国际快递，附追踪编号", "fact2k": "48 小时", "fact2v": "咨询排序确认",
     "paybtn": "付款方式", "badge": "请咨询后下单", "svcCta": "私讯确认",
     "open": "开启", "copy": "复制", "wa": "WhatsApp 咨询", "ln": "LINE 咨询", "mail": "写信询问", "admin": "管理",
