@@ -156,6 +156,8 @@ body:not([data-lang="mix"]) .tx-en,body:not([data-lang="mix"]) .nm-en,body:not([
 .feat-price{font-family:var(--en);font-size:clamp(16px,1.9vw,19px);color:var(--paper);margin-top:12px;letter-spacing:.02em}
 .feat-note{font-size:11.5px;color:var(--dim-2);margin-top:8px}
 .more{margin-top:14px;display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--paper);border-bottom:1px solid var(--paper);padding-bottom:3px;cursor:pointer}
+.svc-more-row{display:flex;align-items:baseline;flex-wrap:wrap;gap:14px;margin-top:14px}
+.svc-more-row .more{margin-top:0}
 .more:hover{color:var(--cin);border-color:var(--cin)}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.6vw,20px);margin-top:18px}
 @media(min-width:620px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
@@ -365,6 +367,7 @@ body:not([data-lang="mix"]) .tx-en,body:not([data-lang="mix"]) .nm-en,body:not([
   <div class="wrap">
     <div class="sec-hd">
       <h2 data-tx="obj.title" data-en="Objects">東方器物</h2>
+      <div class="sec-note" style="margin-left:auto" data-tx="obj.note" data-en="For more objects, please contact us to enquire.">更多器物請添加聯繫方式諮詢</div>
     </div>
     <div id="cats"></div>
   </div>
@@ -378,7 +381,10 @@ body:not([data-lang="mix"]) .tx-en,body:not([data-lang="mix"]) .nm-en,body:not([
     </div>
     <div class="svc-grid" id="svcTop"></div>
     <div class="svc-grid" id="svcRest" style="margin-top:clamp(12px,2vw,20px);display:none"></div>
-    <button class="more" id="svcMore">查看全部服務 →</button>
+    <div class="svc-more-row">
+      <button class="more" id="svcMore">查看全部服務 →</button>
+      <span class="sec-note" style="margin-left:auto" data-tx="svc.more" data-en="For more services, please contact us to enquire.">更多服務請添加聯繫方式諮詢</span>
+    </div>
   </div>
 </section>
 
@@ -555,6 +561,8 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
   var TX_EN = {
     "hero.tag": "Fortune · Reading · Qimen Dunjia",
     "cols.title": "Collections", "obj.title": "Objects",
+    "obj.note": "For more objects, please contact us to enquire.",
+    "svc.more": "For more services, please contact us to enquire.",
     "cols.note": "Tongtai Wenhua reminder: all objects on this site are energy-balancing items; some come with an adjustment process. Please enquire before choosing, and do not order blindly in case it conflicts with what you need.",
     "svc.title": "Readings and Consultations",
     "svc.note": "Delivered online · scheduled within 48 hours of payment",
@@ -586,6 +594,8 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
     "hero.title": "看得懂命运的人，心里比较有底。",
     "hero.sub": "通泰文化以奇门遁甲、塔罗星象为基本依据：一对一命理咨询，辅以可长期持有的器物。线上咨询后下单，国际快递配送。",
     "cols.title": "类目", "obj.title": "东方器物", "svc.title": "咨询服务",
+    "obj.note": "更多器物请添加联系方式咨询",
+    "svc.more": "更多服务请添加联系方式咨询",
     "cols.note": "通泰文化提醒：本站所有器物均为能量调理物品，部分伴有调理过程，请咨询后选择，切勿盲目下单导致与所需冲突",
     "svc.note": "线上交付 · 付款后 48 小时内排序",
     "mis.title": "我们的做法",
