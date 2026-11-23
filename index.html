@@ -116,7 +116,7 @@ body:not([data-lang="mix"]) .tx-en,body:not([data-lang="mix"]) .nm-en,body:not([
 .cols-sec{padding:clamp(40px,5.6vw,72px) 0 clamp(24px,3vw,40px)}
 .cols-hd{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:22px}
 .cols-hd h2{font-size:clamp(20px,2.5vw,27px);letter-spacing:.04em}
-.cols-hd .note{font-size:12.5px;color:var(--dim-2)}
+.cols-hd .note{font-size:12.5px;color:var(--dim-2);flex:1 1 100%;max-width:46em;line-height:1.6}
 .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.6vw,18px)}
 @media(min-width:700px){.cols{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .col{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--ink-3);cursor:pointer}
@@ -355,6 +355,7 @@ body:not([data-lang="mix"]) .tx-en,body:not([data-lang="mix"]) .nm-en,body:not([
   <div class="wrap">
     <div class="cols-hd">
       <h2 data-tx="cols.title" data-en="Collections">類目</h2>
+      <div class="note" data-tx="cols.note" data-en="Tongtai Wenhua reminder: all objects on this site are energy-balancing items; some come with an adjustment process. Please enquire before choosing, and do not order blindly in case it conflicts with what you need.">通泰文化提醒：本站所有器物均為能量調理物品，部分伴有調理過程，請諮詢後選擇，切勿盲目下單導致與所需衝突</div>
     </div>
     <div class="cols" id="cols"></div>
   </div>
@@ -554,6 +555,7 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
   var TX_EN = {
     "hero.tag": "Fortune · Reading · Qimen Dunjia",
     "cols.title": "Collections", "obj.title": "Objects",
+    "cols.note": "Tongtai Wenhua reminder: all objects on this site are energy-balancing items; some come with an adjustment process. Please enquire before choosing, and do not order blindly in case it conflicts with what you need.",
     "svc.title": "Readings and Consultations",
     "svc.note": "Delivered online · scheduled within 48 hours of payment",
     "mis.title": "How We Work",
@@ -584,6 +586,7 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
     "hero.title": "看得懂命运的人，心里比较有底。",
     "hero.sub": "通泰文化以奇门遁甲、塔罗星象为基本依据：一对一命理咨询，辅以可长期持有的器物。线上咨询后下单，国际快递配送。",
     "cols.title": "类目", "obj.title": "东方器物", "svc.title": "咨询服务",
+    "cols.note": "通泰文化提醒：本站所有器物均为能量调理物品，部分伴有调理过程，请咨询后选择，切勿盲目下单导致与所需冲突",
     "svc.note": "线上交付 · 付款后 48 小时内排序",
     "mis.title": "我们的做法",
     "mis.note": "能量为引，归元纳气调理为方法，器物为辅助",
