@@ -271,6 +271,24 @@ body:not([data-lang="mix"]) .tx-en,body:not([data-lang="mix"]) .nm-en,body:not([
 .tab.on{color:#fff;background:var(--cin);border-color:var(--cin)}
 .adm-sec{display:none}
 .adm-sec.on{display:block}
+.stat-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:18px}
+.stat-card{background:#fff;border:1px solid var(--line-2);padding:16px 14px;text-align:center}
+.stat-num{font-family:var(--en);font-size:26px;color:var(--paper);letter-spacing:.02em}
+.stat-lab{font-size:11px;color:var(--dim-2);margin-top:6px}
+.stat-block{background:#fff;border:1px solid var(--line-2);padding:16px;margin-bottom:14px}
+.stat-block h3{font-size:14px;margin-bottom:12px;letter-spacing:.04em}
+.stat-chart svg{display:block}
+.stat-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px}
+.stat-legend-i{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:#6c655c}
+.stat-legend-i i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.stat-tables{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.stat-table{background:#fff;border:1px solid var(--line-2);padding:14px 15px}
+.stat-table h4{font-size:12.5px;margin-bottom:10px;color:var(--dim)}
+.stat-row{display:flex;justify-content:space-between;gap:12px;font-size:12.5px;padding:7px 0;border-top:1px solid var(--line-2)}
+.stat-row:first-of-type{border-top:0}
+.stat-row b{font-family:var(--en)}
+.stat-empty{color:var(--dim-2);justify-content:center}
+@media(max-width:700px){.stat-cards{grid-template-columns:1fr}.stat-tables{grid-template-columns:1fr}}
 .row{background:#fff;border:1px solid var(--line-2);padding:13px 15px;margin-bottom:10px;display:grid;gap:9px}
 .row-line{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
 .f{display:flex;flex-direction:column;gap:4px;min-width:0}
@@ -481,6 +499,7 @@ body:not([data-lang="mix"]) .tx-en,body:not([data-lang="mix"]) .nm-en,body:not([
           <button class="tab" data-tab="c">聯絡</button>
           <button class="tab" data-tab="y">支付</button>
           <button class="tab" data-tab="t">文案</button>
+          <button class="tab" data-tab="stat">統計</button>
         </div>
         <button class="mini" id="admExit">關閉</button>
       </div>
@@ -490,6 +509,7 @@ body:not([data-lang="mix"]) .tx-en,body:not([data-lang="mix"]) .nm-en,body:not([
       <div class="adm-sec" id="secC"></div>
       <div class="adm-sec" id="secY"></div>
       <div class="adm-sec" id="secT"></div>
+      <div class="adm-sec" id="secStat"></div>
     </div>
   </div>
   <div class="adm-bar" id="admBar">
@@ -515,6 +535,28 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
   "use strict";
   var ORIGIN = JSON.parse(JSON.stringify(window.__CATALOG__));
   var CFG = window.__SITE__ || {};
+
+  /* ---- 統計上報（默認 REST 契約：POST /track；GET /stats?range=day|month） ---- */
+  var API_BASE = ""; // 後端基礎地址，例如 "https://api.example.com"；留空時僅記錄本機瀏覽記錄
+  var STAT_BUF_KEY = "tongtai_track_buf";
+  var statAdminSession = false;
+  function statVid() {
+    var v = null;
+    try { v = localStorage.getItem("tongtai_vid"); if (!v) { v = "v" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8); localStorage.setItem("tongtai_vid", v); } } catch (e) {}
+    return v || "anon";
+  }
+  function statIsAdmin() { return statAdminSession; }
+  function trackStat(event, target) {
+    if (statIsAdmin()) return;
+    var payload = { ts: new Date().toISOString(), event: event, target: target || "", visitor: statVid(), admin: false, lang: (typeof LANG !== "undefined" ? LANG.mode : "mix") };
+    try {
+      var buf = JSON.parse(localStorage.getItem(STAT_BUF_KEY) || "[]");
+      buf.push(payload); if (buf.length > 500) buf.splice(0, buf.length - 500);
+      localStorage.setItem(STAT_BUF_KEY, JSON.stringify(buf));
+    } catch (e) {}
+    if (!API_BASE) return;
+    fetch(API_BASE.replace(/\/$/, "") + "/track", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload), keepalive: true }).catch(function () {});
+  }
 
   /* ---- 全站文案（可在管理頁修改） ---- */
   var SITEKEY = "tongtai_site_v3";
@@ -901,10 +943,21 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
 
   /* ============ 事件 ============ */
   document.addEventListener("click", function (e) {
+    var ctLink = e.target.closest(".ct a, .dt-acts a, .acts-link");
+    if (ctLink) {
+      var lab = "";
+      var ctBox = ctLink.closest(".ct");
+      if (ctBox) { var kEl = ctBox.querySelector(".ct-k"); if (kEl) { var kc = kEl.cloneNode(true); var kEn = kc.querySelector(".ct-k-en"); if (kEn) kEn.remove(); lab = kc.textContent.replace(/\s+/g, " ").trim(); } }
+      if (!lab) lab = ctLink.textContent.replace(/\s+/g, " ").trim() || "contact";
+      trackStat("contact_click", lab);
+    }
     var open = e.target.closest("[data-open]");
     if (open) { var id = open.getAttribute("data-open"); if (id) openProduct(id); return; }
     var go = e.target.closest("[data-goto]");
     if (go) {
+      var ci = parseInt((go.getAttribute("data-goto") || "").replace("cat-", ""), 10);
+      var cc = (data.categories || [])[ci];
+      trackStat("category_click", cc ? cc.name : go.getAttribute("data-goto"));
       var el = document.getElementById(go.getAttribute("data-goto"));
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
@@ -977,6 +1030,7 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
     renderAll();
   });
   renderAll();
+  trackStat("pageview", "home");
 
   /* ============ 管理：WebAuthn（Windows Hello） ============ */
   var KEY = "tongtai_admin_cred";
@@ -1053,6 +1107,7 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
 
   function unlockAdmin() {
     admOpen = true;
+    statAdminSession = true;
     $("#lockView").style.display = "none";
     $("#admView").style.display = "block";
     $("#admBar").classList.add("on");
@@ -1063,6 +1118,7 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
   $("#lockExit").addEventListener("click", closeAdmin);
   function closeAdmin() {
     admOpen = false;
+    statAdminSession = false;
     $("#adm").classList.remove("on");
     $("#admBar").classList.remove("on");
     $("#lockView").style.display = "";
@@ -1094,7 +1150,7 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
     t.addEventListener("click", function () {
       $$(".tab").forEach(function (x) { x.classList.remove("on"); });
       t.classList.add("on");
-      ["p", "s", "c", "y", "t"].forEach(function (k) { $("#sec" + k.toUpperCase()).classList.toggle("on", k === t.getAttribute("data-tab")); });
+      ["p", "s", "c", "y", "t", "stat"].forEach(function (k) { var sid = k === "stat" ? "secStat" : "sec" + k.toUpperCase(); $("#" + sid).classList.toggle("on", k === t.getAttribute("data-tab")); });
     });
   });
 
@@ -1140,6 +1196,98 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
     ["dt.ask.t", "詳情頁提示 標題", 0], ["dt.ask.d", "詳情頁提示 說明", 1],
     ["foot.brand", "頁尾品牌", 0]
   ];
+
+  /* ---- 統計面板（管理員可見） ---- */
+  var STAT_COLORS = { pageviews: "#9c3b2c", category: "#5a7d6a", contact: "#8a6d3b" };
+  function statKeyDay(ts) { var d = new Date(ts); return (d.getMonth() + 1) + "/" + d.getDate(); }
+  function statKeyMonth(ts) { var d = new Date(ts); return d.getFullYear() + "/" + (d.getMonth() + 1); }
+  function lastDayLabels(n) { var arr = [], now = new Date(); for (var i = n - 1; i >= 0; i--) { var d = new Date(now); d.setDate(now.getDate() - i); arr.push((d.getMonth() + 1) + "/" + d.getDate()); } return arr; }
+  function lastMonthLabels(n) { var arr = [], now = new Date(); for (var i = n - 1; i >= 0; i--) { var d = new Date(now.getFullYear(), now.getMonth() - i, 1); arr.push(d.getFullYear() + "/" + (d.getMonth() + 1)); } return arr; }
+
+  function localStat() {
+    var buf = []; try { buf = JSON.parse(localStorage.getItem(STAT_BUF_KEY) || "[]"); } catch (e) {}
+    var total = { pageviews: 0, category: {}, contact: {} };
+    var dayMap = {}, monthMap = {};
+    function bump(map, key, kind) { if (!map[key]) map[key] = { pageviews: 0, category: 0, contact: 0 }; map[key][kind]++; }
+    buf.forEach(function (ev) {
+      if (!ev || !ev.event) return;
+      if (ev.event === "pageview") { total.pageviews++; bump(dayMap, statKeyDay(ev.ts), "pageview"); bump(monthMap, statKeyMonth(ev.ts), "pageview"); }
+      else if (ev.event === "category_click") { total.category[ev.target] = (total.category[ev.target] || 0) + 1; bump(dayMap, statKeyDay(ev.ts), "category"); bump(monthMap, statKeyMonth(ev.ts), "category"); }
+      else if (ev.event === "contact_click") { total.contact[ev.target] = (total.contact[ev.target] || 0) + 1; bump(dayMap, statKeyDay(ev.ts), "contact"); bump(monthMap, statKeyMonth(ev.ts), "contact"); }
+    });
+    function seriesFor(labels, map) {
+      return {
+        labels: labels,
+        series: {
+          pageviews: labels.map(function (k) { return map[k] ? map[k].pageviews : 0; }),
+          category: labels.map(function (k) { return map[k] ? map[k].category : 0; }),
+          contact: labels.map(function (k) { return map[k] ? map[k].contact : 0; })
+        }
+      };
+    }
+    return { total: total, day: seriesFor(lastDayLabels(30), dayMap), month: seriesFor(lastMonthLabels(12), monthMap) };
+  }
+
+  function statLineChart(labels, series) {
+    var W = 620, H = 220, P = { l: 34, r: 12, t: 14, b: 26 };
+    var defs = [
+      { key: "pageviews", name: "瀏覽量", color: STAT_COLORS.pageviews },
+      { key: "category", name: "品類點擊", color: STAT_COLORS.category },
+      { key: "contact", name: "聯繫方式點擊", color: STAT_COLORS.contact }
+    ];
+    var max = 1;
+    defs.forEach(function (d) { (series[d.key] || []).forEach(function (v) { max = Math.max(max, v); }); });
+    var iw = W - P.l - P.r, ih = H - P.t - P.b;
+    function X(i) { return P.l + (labels.length <= 1 ? iw / 2 : i * iw / (labels.length - 1)); }
+    function Y(v) { return P.t + ih - (max === 0 ? 0 : v / max * ih); }
+    var grid = "";
+    for (var g = 0; g <= 3; g++) { var yy = P.t + ih * g / 3; grid += '<line x1="' + P.l + '" y1="' + yy + '" x2="' + (W - P.r) + '" y2="' + yy + '" stroke="#e7e0d2" stroke-width="1"/>'; }
+    var xlabels = "";
+    var step = Math.ceil(labels.length / 8) || 1;
+    labels.forEach(function (lb, i) { if (i % step !== 0) return; xlabels += '<text x="' + X(i) + '" y="' + (H - 8) + '" font-size="9" fill="#8d857a" text-anchor="middle">' + esc(lb) + '</text>'; });
+    var paths = defs.map(function (d) {
+      var data = series[d.key] || [];
+      var pts = data.map(function (v, i) { return X(i) + "," + Y(v); }).join(" ");
+      var dots = data.map(function (v, i) { return '<circle cx="' + X(i) + '" cy="' + Y(v) + '" r="2.4" fill="' + d.color + '"/>'; }).join("");
+      return '<polyline points="' + pts + '" fill="none" stroke="' + d.color + '" stroke-width="2"/>' + dots;
+    }).join("");
+    var legend = defs.map(function (d) { return '<span class="stat-legend-i"><i style="background:' + d.color + '"></i>' + esc(d.name) + '</span>'; }).join("");
+    return '<div class="stat-chart"><svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" role="img">' + grid + paths + xlabels + '</svg><div class="stat-legend">' + legend + '</div></div>';
+  }
+
+  function statRankTable(title, map) {
+    var rows = Object.keys(map || {}).map(function (k) { return { k: k, v: map[k] }; }).sort(function (a, b) { return b.v - a.v; });
+    var body = rows.length ? rows.map(function (r) { return '<div class="stat-row"><span>' + esc(r.k || "—") + '</span><b>' + r.v + '</b></div>'; }).join("") : '<div class="stat-row stat-empty">暫無數據</div>';
+    return '<div class="stat-table"><h4>' + esc(title) + '</h4>' + body + '</div>';
+  }
+
+  function paintStat(box, stats, fromRemote) {
+    var t = stats.total || { pageviews: 0, category: {}, contact: {} };
+    var cards = '<div class="stat-cards">' +
+      '<div class="stat-card"><div class="stat-num">' + (t.pageviews || 0) + '</div><div class="stat-lab">瀏覽量合計</div></div>' +
+      '<div class="stat-card"><div class="stat-num">' + Object.keys(t.category || {}).reduce(function (s, k) { return s + t.category[k]; }, 0) + '</div><div class="stat-lab">品類點擊合計</div></div>' +
+      '<div class="stat-card"><div class="stat-num">' + Object.keys(t.contact || {}).reduce(function (s, k) { return s + t.contact[k]; }, 0) + '</div><div class="stat-lab">聯繫方式點擊合計</div></div></div>';
+    var dayBlock = '<div class="stat-block"><h3>每日趨勢（近 30 天）</h3>' + statLineChart(stats.day.labels, stats.day.series) + '</div>';
+    var monthBlock = '<div class="stat-block"><h3>每月趨勢（近 12 個月）</h3>' + statLineChart(stats.month.labels, stats.month.series) + '</div>';
+    var tables = '<div class="stat-tables">' + statRankTable("各品類點擊", t.category) + statRankTable("各聯繫方式點擊", t.contact) + '</div>';
+    var note = API_BASE ? "" : '<p class="sec-note" style="margin-bottom:14px">後端接口尚未配置（API_BASE 為空），以下為本機瀏覽記錄；接入後以後端數據為準。</p>';
+    box.innerHTML = note + cards + dayBlock + monthBlock + tables;
+  }
+
+  function renderStatPanel() {
+    var box = $("#secStat"); if (!box) return;
+    paintStat(box, localStat(), false);
+    if (API_BASE) {
+      fetch(API_BASE.replace(/\/$/, "") + "/stats").then(function (r) { return r.json(); }).then(function (remote) {
+        var stats = {
+          total: (remote && remote.total) || { pageviews: 0, category: {}, contact: {} },
+          day: (remote && remote.day) || { labels: [], series: {} },
+          month: (remote && remote.month) || { labels: [], series: {} }
+        };
+        paintStat(box, stats, true);
+      }).catch(function () {});
+    }
+  }
 
   /* ---- 管理表单 ---- */
   function buildAdmin() {
@@ -1210,6 +1358,7 @@ window.__CATALOG__ = {"categories":[{"name":"手機壁紙","count":1,"low":3.0,"
           : '<input data-t="' + m[0] + '" value="' + esc(v) + '">') + '</div>';
     }).join("");
 
+    renderStatPanel();
     bindAdmin();
   }
 
